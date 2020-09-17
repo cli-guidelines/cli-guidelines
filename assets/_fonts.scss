@@ -1,0 +1,10 @@
+$font-prefix: './plex' !default;
+@import 'plex/ibm-plex.scss';
+
+body {
+    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+  
+code {
+    font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+}

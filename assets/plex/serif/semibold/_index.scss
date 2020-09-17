@@ -1,0 +1,16 @@
+$font-prefix: '..' !default;
+@font-face {
+  font-family: 'IBM Plex Serif';
+  font-style: normal;
+  font-weight: 600;
+  src: local('IBM Plex Serif SemiBold'),
+    local('IBMPlexSerif-SemiBold'),
+    url('#{$font-prefix}/IBM-Plex-Serif/fonts/complete/woff2/IBMPlexSerif-SemiBold.woff2') format('woff2'),
+    url('#{$font-prefix}/IBM-Plex-Serif/fonts/complete/woff/IBMPlexSerif-SemiBold.woff') format('woff');
+}
+
+@import 'cyrillic';
+@import 'pi';
+@import 'latin3';
+@import 'latin2';
+@import 'latin1';
