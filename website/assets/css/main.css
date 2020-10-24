@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 1em 0;
+}
+
+li {
+    margin-left: 2em;
+}
+
+body {
+    margin: 100px auto;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: auto 240px;
+}
+
+main {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+aside {
+    grid-row: 1;
+    grid-column: 2;
+}

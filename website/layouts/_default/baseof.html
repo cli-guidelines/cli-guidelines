@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>CLI Guidelines</title>
+
+        {{ $css := resources.Get "css/main.css" | resources.ToCSS }}
+        <link rel="stylesheet" href="{{ $css.Permalink }}">
+    </head>
     <body>
         {{- block "main" . }}{{- end }}
     </body>
