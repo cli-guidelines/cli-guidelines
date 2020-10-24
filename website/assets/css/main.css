@@ -35,5 +35,8 @@ body {
     aside {
         grid-row: 1;
         grid-column: 2;
+        position: sticky;
+        top: 2rem;
+        align-self: start;
     }
 }
