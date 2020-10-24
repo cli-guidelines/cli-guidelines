@@ -10,5 +10,7 @@
     </head>
     <body>
         {{- block "main" . }}{{- end }}
+        {{ $js := resources.Get "js/main.js" }}
+        <script src="{{ $js.Permalink }}"></script>
     </body>
 </html>
