@@ -32,7 +32,7 @@ body {
         grid-column: 1;
     }
 
-    aside {
+    nav {
         grid-row: 1;
         grid-column: 2;
         position: sticky;
