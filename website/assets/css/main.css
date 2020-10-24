@@ -12,20 +12,24 @@ h2, h3, h4, h5, h6, p, ul {
     margin: 1em 0;
 }
 
-nav ul {
-    margin: 0;
-}
-
 li {
     margin-left: 2em;
 }
 
-li > a {
+nav ul {
+    margin: 0;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+nav li > a {
     color: rgb(155, 155, 155);
     text-decoration: none;
 }
 
-li.active > a {
+nav li.active > a {
     color: rgb(67, 67, 67);
 }
 
