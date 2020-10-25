@@ -56,7 +56,7 @@ nav li > a:hover {
 @media screen and (min-width: 960px) {
     body {
         display: grid;
-        grid-template-columns: auto 240px;
+        grid-template-columns: auto 300px;
     }
 
     main {
