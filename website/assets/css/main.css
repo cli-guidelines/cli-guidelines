@@ -32,24 +32,25 @@ nav ul {
 nav li {
     list-style-type: none;
     margin: 0.25em 0.5em;
+    color: rgb(155, 155, 155);
 }
 
-nav li ul {
+nav li.active {
+    color: rgb(67, 67, 67);
+}
+
+nav li > ul {
     margin-left: 0.5em;
     border-left: 1px solid rgb(230, 230, 230);
 }
 
 nav li > a {
-    color: rgb(155, 155, 155);
+    color: inherit;
     text-decoration: none;
 }
 
 nav li > a:hover {
     text-decoration: underline;
-}
-
-nav li.active > a {
-    color: rgb(67, 67, 67);
 }
 
 @media screen and (min-width: 960px) {
