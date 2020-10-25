@@ -31,9 +31,17 @@ function convertToNestedSections(rootElement) {
                 currentLevel--;
             }
 
+            const id = element.getAttribute('id');
+
             const newSection = document.createElement('section');
-            newSection.setAttribute('id', element.getAttribute('id'));
+            newSection.setAttribute('id', id);
             element.removeAttribute('id');
+
+            const permalink = document.createElement('a');
+            permalink.setAttribute('href', `#${id}`);
+            permalink.classList.add('permalink');
+            permalink.textContent = '#';
+            element.appendChild(permalink);
 
             currentSection.appendChild(newSection);
 

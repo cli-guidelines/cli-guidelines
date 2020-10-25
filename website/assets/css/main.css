@@ -53,6 +53,27 @@ nav li > a:hover {
     text-decoration: underline;
 }
 
+h1 .permalink {
+    display: none;
+}
+
+h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
+h2 > .permalink,
+h3 > .permalink,
+h4 > .permalink,
+h5 > .permalink,
+h6 > .permalink {
+    position: absolute;
+    top: 0;
+    left: -1rem;
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+    font-weight: 100;
+}
+
 @media screen and (min-width: 960px) {
     body {
         display: grid;
