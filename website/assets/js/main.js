@@ -1,20 +1,71 @@
-// https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/
 window.addEventListener('DOMContentLoaded', () => {
 
+    const navLinks = document.querySelectorAll('nav li a');
+    const elements = document.querySelectorAll('main > *');
+    const headingMap = buildHeadingMap(elements);
+
+    const visibleElements = new Set();
+
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const id = entry.target.getAttribute('id');
-            if (entry.intersectionRatio > 0) {
-                document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                visibleElements.add(e.target);
             } else {
-                document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
+                visibleElements.delete(e.target);
             }
         });
+
+        const topmostElement = getTopmostElement(visibleElements);
+        if (!topmostElement) {
+            return;
+        }
+
+        const closestHeading = headingMap.get(topmostElement);
+
+        updateNavigation(navLinks, closestHeading);
     });
 
-    // Track all sections that have an `id` applied
-    document.querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]').forEach((section) => {
-        observer.observe(section);
-    });
+    elements.forEach(e => observer.observe(e));
 
 });
+
+function buildHeadingMap(elements) {
+    const map = new Map();
+    let lastHeading = null;
+
+    elements.forEach(element => {
+        if (element.matches('h2,h3,h4,h5,h6') && element.hasAttribute('id')) {
+            lastHeading = element;
+        }
+
+        map.set(element, lastHeading);
+    });
+
+    return map;
+}
+
+function getTopmostElement(elements) {
+    const elementsArray = Array.from(elements);
+
+    elementsArray.sort((a, b) => {
+        if (a === b) {
+            return 0;
+        }
+        if (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_PRECEDING) {
+            return 1;
+        }
+        return -1;
+    });
+
+    return elementsArray[0];
+}
+
+function updateNavigation(navLinks, currentHeading) {
+    navLinks.forEach(a => {
+        if (currentHeading && a.getAttribute('href') === `#${currentHeading.id}`) {
+            a.parentNode.classList.add('active');
+        } else {
+            a.parentNode.classList.remove('active');
+        }
+    });
+}
