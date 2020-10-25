@@ -48,7 +48,7 @@ nav li.active > a {
 }
 
 body {
-    margin: 100px auto;
+    margin: 0 auto;
     max-width: 960px;
 }
 
@@ -61,6 +61,7 @@ body {
     main {
         grid-row: 1;
         grid-column: 1;
+        padding-top: 2rem;
     }
 
     nav {
