@@ -101,6 +101,8 @@ h1 .permalink {
 
 h2, h3, h4, h5, h6 {
     position: relative;
+    left: -1rem;
+    padding-left: 1rem;
 }
 
 h2 > .permalink,
@@ -110,8 +112,17 @@ h5 > .permalink,
 h6 > .permalink {
     position: absolute;
     top: 0;
-    left: -1rem;
+    left: 0;
     text-decoration: none;
     color: rgb(155, 155, 155);
     font-weight: 100;
+    display: none;
+}
+
+h2:hover > .permalink,
+h3:hover > .permalink,
+h4:hover > .permalink,
+h5:hover > .permalink,
+h6:hover > .permalink {
+    display: block;
 }
