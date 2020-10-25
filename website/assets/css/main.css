@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0 auto;
+    max-width: 960px;
+}
+
 h1 {
     margin-bottom: 1em;
 }
@@ -45,11 +50,6 @@ nav li > a:hover {
 
 nav li.active > a {
     color: rgb(67, 67, 67);
-}
-
-body {
-    margin: 0 auto;
-    max-width: 960px;
 }
 
 @media screen and (min-width: 960px) {
