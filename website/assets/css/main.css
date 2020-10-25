@@ -11,6 +11,14 @@ body {
     max-width: 960px;
 }
 
+main {
+    margin: 2em;
+}
+
+nav {
+    display: none;
+}
+
 @media screen and (min-width: 960px) {
     body {
         display: grid;
@@ -20,9 +28,11 @@ body {
         grid-row: 1;
         grid-column: 1;
         padding-top: 2rem;
+        margin: 0;
     }
 
     nav {
+        display: block;
         grid-row: 1;
         grid-column: 2;
         position: sticky;
@@ -43,6 +53,10 @@ h2, h3, h4, h5, h6, p, ul {
 
 li {
     margin-left: 2em;
+}
+
+pre {
+    overflow: auto;
 }
 
 /* Navigation */
