@@ -1,13 +1,6 @@
 # Command Line Interface Guidelines
 An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
 
-## Table of Contents
-
-- Foreword: Why are we doing this?
-- Philosophy: The fundamental principles of good CLI design.
-- Guidelines: Concrete, specific advice you can put into practice today.
-- Acknowledgements
-
 ## Foreword
 
 In the 1980s, if you wanted a personal computer to do something for you, you needed to know what to type when confronted with `C:\>` or `~$`. Help came in the form of thick, spiral-bound manuals. Error messages were opaque. There was no Stack Overflow to save you. But if you were lucky enough to have internet access, you could get help from Usenet—an early internet community filled with other people who were just as frustrated as you were. They could either help you solve your problem, or at least provide some moral support and camaraderie.
@@ -147,7 +140,7 @@ The time might come when you, too, have to break the rules. Do so with intention
 
 > “Abandon a standard when it is demonstrably harmful to productivity or user satisfaction.” — Jef Raskin, [The Humane Interface](https://en.wikipedia.org/wiki/The_Humane_Interface)
 
-### Guidelines
+## Guidelines
 
 This is a collection of specific things you can do to make your command-line program better.
 
