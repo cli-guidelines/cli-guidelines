@@ -2,6 +2,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const navLinks = document.querySelectorAll('nav li a');
     const elements = document.querySelectorAll('main > *');
+    startNavObservation(elements, navLinks);
+
+});
+
+function startNavObservation(elements, navLinks) {
     const headingMap = buildHeadingMap(elements);
 
     const visibleElements = new Set();
@@ -26,8 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     elements.forEach(e => observer.observe(e));
-
-});
+}
 
 function buildHeadingMap(elements) {
     const map = new Map();
