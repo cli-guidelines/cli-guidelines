@@ -447,7 +447,25 @@ _Further reading: [no-color.org](https://no-color.org/), [12 Factor CLI Apps](ht
 
 For example, [yubikey-agent](https://github.com/FiloSottile/yubikey-agent) uses Emoji to add structure to the output so it isn’t just a wall of text, and a ❌ to draw your attention to an important piece of information:
 
-![Terminal window showing the output of `yubikey-agent --setup`](images/yubikey-agent-emoji-example.png)
+```shell-session
+$ yubikey-agent -setup
+🔐 The PIN is up to 8 numbers, letters, or symbols. Not just numbers!
+❌ The key will be lost if the PIN and PUK are locked after 3 incorrect tries.
+
+Choose a new PIN/PUK: 
+Repeat the PIN/PUK: 
+
+🧪 Retriculating splines …
+
+✅ Done! This YubiKey is secured and ready to go.
+🤏 When the YubiKey blinks, touch it to authorize the login.
+
+🔑 Here's your new shiny SSH public key:
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCEJ/
+UwlHnUFXgENO3ifPZd8zoSKMxESxxot4tMgvfXjmRp5G3BGrAnonncE7Aj11pn3SSYgEcrrn2sMyLGpVS0=
+
+💭 Remember: everything breaks, have a backup plan for when this YubiKey does.
+```
 
 **By default, don’t output information that’s only understandable by the creators of the software.** If a piece of output serves only to help you (the developer) understand what your software is doing, it almost certainly shouldn’t be displayed to normal users by default—only in verbose mode.
 
