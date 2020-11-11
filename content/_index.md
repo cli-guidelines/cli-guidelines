@@ -693,7 +693,7 @@ That way a user doesn’t have to remember two different options (and which comm
 
 These are a list of options that are commonly used:
 
-- `-a`, --all`: All.
+- `-a`, `--all`: All.
   For example, `ps`, `fetchmail`.
 - `-d`, `--debug`: Show debugging output.
 - `-f`, `--force`: Force.
