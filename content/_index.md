@@ -2,7 +2,7 @@
 
 An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
 
-## Foreword
+## Foreword {#foreword}
 
 In the 1980s, if you wanted a personal computer to do something for you, you needed to know what to type when confronted with `C:\>` or `~$`.
 Help came in the form of thick, spiral-bound manuals.
@@ -45,7 +45,7 @@ Inspired by traditional UNIX philosophy, driven by an interest in encouraging a 
 
 Long live the command line!
 
-## Introduction
+## Introduction {#introduction}
 
 This document covers both high-level design philosophy, and concrete guidelines.
 It’s heavier on the guidelines because our philosophy as practitioners is not to philosophize too much.
@@ -66,11 +66,11 @@ Who is this guide for?
 - If you are designing an immersive, full-screen CLI port of Minecraft, this guide isn’t for you.
   (But we can’t wait to see it!)
 
-## Philosophy
+## Philosophy {#philosophy}
 
 These are what we consider to be the fundamental principles of good CLI design.
 
-### Human-first design
+### Human-first design {#human-first-design}
 
 Traditionally, UNIX commands were written under the assumption they were going to be used primarily by other programs.
 They had more in common with functions in a programming language than with graphical applications.
@@ -78,7 +78,7 @@ They had more in common with functions in a programming language than with graph
 Today, even though many CLI programs are used primarily (or even exclusively) by humans, a lot of their interaction design still carries the baggage of the past.
 It’s time to shed some of this baggage: if a command is going to be used primarily by humans, it should be designed for humans first.
 
-### Simple parts that work together
+### Simple parts that work together {#simple-parts-that-work-together}
 
 A core tenet of [the original UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) is the idea that small, simple programs with clean interfaces can be combined to build larger systems.
 Rather than stuff more and more features into those programs, you make programs that are modular enough to be recombined as needed.
@@ -99,7 +99,7 @@ Your software _will_ become a part in a larger system - your only choice is over
 Most importantly, designing for composability does not need to be at odds with designing for humans first.
 Much of the advice in this document is about how to achieve both.
 
-### Consistency across programs
+### Consistency across programs {#consistency-across-programs}
 
 The terminal’s conventions are hardwired into our fingers.
 We had to pay an upfront cost by learning about command line syntax, flags, environment variables and so on, but it pays off in long-term efficiency… as long as programs are consistent.
@@ -112,7 +112,7 @@ For example, many long-established UNIX commands don't output much information b
 
 When following convention would compromise a program’s usability, it might be time to break with it—but such a decision should be made with care.
 
-### Saying (just) enough
+### Saying (just) enough {#saying-just-enough}
 
 The terminal is a world of pure information.
 You could make an argument that information is the interface—and that, just like with any interface, there’s often too much or too little of it.
@@ -123,7 +123,7 @@ The end result is the same: a lack of clarity, leaving the user confused and irr
 
 It can be very difficult to get this balance right, but it’s absolutely crucial if software is to empower and serve its users.
 
-### Ease of discovery
+### Ease of discovery {#ease-of-discovery}
 
 When it comes to making functionality discoverable, GUIs have the upper hand.
 Everything you can do is laid out in front of you on the screen, so you can find what you need without having to learn anything, and perhaps even discover things you didn’t know were possible.
@@ -139,7 +139,7 @@ There are lots of ideas that can be stolen from GUIs to make CLIs easier to lear
 
 Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines
 
-### Conversation as the norm
+### Conversation as the norm {#conversation-as-the-norm}
 
 GUI design, particularly in its early days, made heavy use of _metaphor_: desktops, files, folders, recycle bins.
 It made a lot of sense, because computers were still trying to bootstrap themselves into legitimacy.
@@ -167,7 +167,7 @@ At best, it’s a pleasant exchange that speeds them on their way with newfound 
 
 _Further reading: [The Anti-Mac User Interface (Don Gentner and Jakob Nielsen)](https://www.nngroup.com/articles/anti-mac-interface/)_
 
-### Robustness
+### Robustness {#robustness}
 
 Robustness is both an objective and a subjective property.
 Software should _be_ robust, of course: unexpected input should be handled gracefully, operations should be idempotent where possible, and so on.
@@ -184,7 +184,7 @@ Lots of special cases and complex code tend to make a program fragile.
 
 _Further reading: [The Art of UNIX Programming: Robustness](http://www.catb.org/~esr/writings/taoup/html/ch01s06.html#id2878145)_
 
-### Empathy
+### Empathy {#empathy}
 
 Command-line tools are a programmer’s creative toolkit, so they should be enjoyable to use.
 This doesn’t mean turning them into a video game, or using lots of emoji (though there’s nothing inherently wrong with emoji 😉).
@@ -193,7 +193,7 @@ It means giving the user the feeling that you are on their side, that you want t
 There’s no list of actions you can take that will ensure they feel this way, although we hope that following our advice will take you some of the way there.
 Delighting the user means _exceeding their expectations_ at every turn, and that starts with empathy.
 
-### Chaos
+### Chaos {#chaos}
 
 The world of the terminal is a mess.
 Inconsistencies are everywhere, slowing us down and making us second-guess ourselves.
@@ -210,7 +210,7 @@ Do so with intention and clarity of purpose.
 
 > “Abandon a standard when it is demonstrably harmful to productivity or user satisfaction.” — Jef Raskin, [The Humane Interface](https://en.wikipedia.org/wiki/The_Humane_Interface)
 
-## Guidelines
+## Guidelines {#guidelines}
 
 This is a collection of specific things you can do to make your command-line program better.
 
@@ -227,7 +227,7 @@ On the other hand, if you’ve thought about it and determined that a rule is wr
 Also—these rules aren’t written in stone.
 (TK See that edit button below?) If you disagree with a general rule for good reason, we hope you’ll propose a change.
 
-### The Basics
+### The Basics {#the-basics}
 
 There are a few basic rules you need to follow.
 Get these wrong, and your program will be either very hard to use, or flat-out broken.
@@ -254,7 +254,7 @@ Anything that is machine readable should also go to stdout—this is where pipin
 Log messages, errors, and so on should all be sent to stderr.
 This means that when commands are piped together, these messages are displayed to the user and not fed into the next command.
 
-### Help
+### Help {#help}
 
 **Display help text when passed no options, the `-h` flag, or the `--help` flag.**
 
@@ -459,7 +459,7 @@ _Further reading: [“Do What I Mean”](http://www.catb.org/~esr/jargon/html/D/
 This means it doesn’t just hang, like `cat`.
 Alternatively, you could print a log message to `stderr`.
 
-### Output
+### Output {#output}
 
 **Human-readable output is paramount.**
 Humans come first, machines second.
@@ -624,7 +624,7 @@ This does not page if the content fills one screen, ignores case when you search
 There might be libraries in your language that are more robust than piping to `less`.
 For example, [pypager](https://github.com/prompt-toolkit/pypager) in Python.
 
-### Errors
+### Errors {#errors}
 
 One of the most common reasons to consult documentation is to fix errors.
 If you can make errors into documentation, then this will save the user loads of time.
