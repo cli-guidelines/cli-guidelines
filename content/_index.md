@@ -923,3 +923,23 @@ Imagine it’s 20 years from now.
 Will your command still run the same as it does today, or will it stop working because some external dependency on the internet has changed or is no longer maintained?
 The server most likely to not exist in 20 years is the one that you are maintaining right now.
 (But don’t build in a blocking call to Google Analytics either.)
+
+### Signals and control characters {#signals}
+
+**If a user hits Ctrl-C (the INT signal), exit as soon as possible.**
+Say something immediately, before you start clean-up.
+Add a timeout to any clean-up code so it can’t hang forever.
+
+**If a user hits Ctrl-C during clean-up operations that might take a long time, skip them.**
+Tell the user what will happen when they hit Ctrl-C again, in case it is a destructive action.
+
+For example, when quitting Docker Compose, you can hit Ctrl-C a second time to force your containers to stop immediately instead of shutting them down gracefully.
+
+```
+$  docker-compose up
+…
+^CGracefully stopping... (press Ctrl+C again to force)
+```
+
+Your program should expect to be started in a situation where clean-up has not been run.
+(See [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).)
