@@ -704,7 +704,7 @@ These are a list of options that are commonly used:
 - `-h`, `--help`: Help.
   This should only mean help.
   See the [help](#help) section.
-- `--no-input`: See the [interactive](#TK) section.
+- `--no-input`: See the [interactivity](#interactivity) section.
 - `-o`, `--output`: Output file.
   For example, `sort`, `gcc`.
 - `-p`, `--port`: Port.
@@ -727,7 +727,7 @@ For example, `ls` has terse default output to optimize for scripts and other his
 
 **Prompt for user input.**
 If a user doesn’t pass an argument or flag, prompt for it.
-(See also: [Interactivity](#TK))
+(See also: [Interactivity](#interactivity))
 
 **Never _require_ a prompt.**
 Always provide a way of passing input with flags or arguments.
@@ -788,3 +788,23 @@ A `--password-file` argument allows a secret to be passed in discreetly, in a wi
 (One could read a password file in Bash by using `--password $(< password.txt)`.
 Unfortunately, not every context in which a command is run will have access to magical shell substitutions.
 For example, `systemd` service definitions, `exec` system calls, and some `Dockerfile` command forms do not support the substitutions available in most shells.)
+
+### Interactivity {#interactivity}
+
+**Only use prompts or interactive elements if stdin is an interactive terminal (a TTY).**
+This is a pretty reliable way to tell if you’re piping data into a command or it is being run in a script, in which case a prompt won’t work and you should throw an error telling the user what flag to pass.
+
+**If `--no-input` is passed, don’t prompt or do anything interactive.**
+This allows users an explicit way to disable all prompts in commands.
+If the command requires input, fail and tell the user how to pass the information as a flag.
+
+**If you’re prompting for a password, don’t print it as the user types.**
+This is done by turning off echo in the terminal.
+Your language should have helpers for this.
+
+**Let the user escape.**
+Make it clear how to get out.
+(Don’t do what vim does.)
+If your program hangs on network I/O etc, always make Ctrl-C still work.
+If it’s a wrapper around program execution where Ctrl-C can’t quit (SSH, tmux, telnet, etc), make it clear how to do that.
+For example, SSH allows escape sequences with the `~` escape character.
