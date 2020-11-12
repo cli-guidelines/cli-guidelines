@@ -984,3 +984,51 @@ Here is the precedence for config parameters, from highest to lowest:
 - Project-level configuration (eg. `.env`)
 - User-level configuration
 - System wide configuration
+
+### Environment variables {#environment-variables}
+
+**Environment variables are for behavior that _varies with the context_ in which a command is run.**
+The “environment” of an environment variable is the terminal session—the context in which the command is running.
+So, an env var might change each time a command runs, or between terminal sessions on one machine, or between instantiations of one project across several machines.
+
+Environment variables may duplicate the functionality of flags or configuration parameters, or they may be distinct from those things.
+
+So how to choose candidates for environment variables?  Here are some rules of thumb:
+
+- Parameters that tend to be consistent between instantiations of a command’s runtime environment should be stored in a config file.
+  Separate what changes from what stays the same.
+  Environment variables change more often than other parameters.
+- One rule of thumb is: Would I want to check the value of this variable into source control?
+  If not, maybe it’s an environment variable.
+
+Here are some common uses for environment variables:
+
+- Setting the level of debugging output
+- Providing a non-default path to items needed for a program to start
+- Enabling a safe mode or dry run of a program
+- Specifying how or whether color should appear in output
+- Seeding a random number generator with external data
+- Passing sensitive credentials to a program without logging them in any way
+
+**For maximum portability, environment variable names must only contain letters, numbers, and underscores (and mustn't start with a number).**
+Which means `O_O` and `OwO` are the only emoticons that are also valid environment variable names.
+
+**Aim for single-line environment variable values.**
+While multi-line values are possible, they create usability issues with the `env` command.
+
+**Avoid commandeering widely used names.**
+Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap08.html).
+
+**Check general-purpose environment variables for configuration values when possible:**
+
+- `NO_COLOR`, to disable color (see [Output](#output)).
+- `DEBUG`, to enable more verbose output.
+- `EDITOR`, if you need to prompt the user to edit a file or input more than a single line.
+- `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`, if you’re going to perform network operations.
+  (The HTTP library you’re using might already check for these.)
+- `SHELL`, if you’re going to invoke external commands.
+- `TERM`, `TERMINFO` and `TERMCAP`, if you’re going to use terminal-specific escape sequences.
+- `TMPDIR`, if you’re going to create temporary files.
+- `HOME`, for locating configuration files.
+- `PAGER`, if you want to automatically page output.
+- `LINES` and `COLUMNS`, for output that’s dependent on screen size (e.g. tables).
