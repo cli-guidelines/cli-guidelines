@@ -943,3 +943,44 @@ $  docker-compose up
 
 Your program should expect to be started in a situation where clean-up has not been run.
 (See [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).)
+
+### Configuration and caching {#configuration-and-caching}
+
+(TK maybe just "Configuration"? Caching doesn't seem to be part of this)
+
+**Follow the XDG-spec.**
+In 2010 the X Desktop Group, now [freedesktop.org](https://freedesktop.org), developed a specification for the location of base directories where config files may be located.
+One goal was to limit the proliferation of dotfiles in a user’s home directory by supporting a general-purpose `~/.config` folder.
+The XDG Base Directory Specification ([full spec](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html), [summary](https://wiki.archlinux.org/index.php/XDG_Base_Directory#Specification)) is supported by yarn, fish, wireshark, emacs, neovim, tmux, and many other projects you know and love.
+
+(TK clean up and combine the following two pieces of advice, possibly move to "Environment variables" section or combine these two sections)
+
+**If you anticipate project-specific configuration, read environment variables from `.env`.**
+If your command defines its own environment variables, then it should also read them from `.env` so you can configure it differently for each project.
+This is particularly important if you don’t have a configuration file.
+
+**Reading from an `.env` file.**
+If your CLI program deals in projects, an environment-specific `.env` file can be employed when configuration parameters vary significantly between instances of a project.
+It’s commonly used for web applications whose settings differ between development and production environments.
+While `.env` is not ideal for storing configuration data (compared to a config file), it has become a convention.
+
+- The `.env` file is not commonly stored in source control
+- (Therefore, it has no history)
+- It has only one data type: string
+- It lends itself to being poorly organized
+- It makes encoding issues easy to introduce
+- It often contains sensitive credentials & key material that would be better stored more securely
+
+You may still choose to support `.env` files despite their drawbacks.
+
+**If you automatically modify configuration that is not your program’s, ask the user for consent and tell them exactly what you’re doing.**
+Prefer creating a new config file (e.g. `/etc/cron.d/myapp`) rather than appending to an existing config file (e.g. `/etc/crontab`).
+If you have to append or modify to a system-wide config file, use a dated comment in that file to delineate your additions.
+
+**Apply configuration parameters in order of precedence.**
+Here is the precedence for config parameters, from highest to lowest:
+
+- The running shell’s environment variables
+- Project-level configuration (eg. `.env`)
+- User-level configuration
+- System wide configuration
