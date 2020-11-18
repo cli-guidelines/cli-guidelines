@@ -18,7 +18,7 @@ $ hugo server
 To view the site on an external mobile device, run:
 
 ```
-hugo server --bind 0.0.0.0 --baseURL http://$(hostname):1313
+hugo server --bind 0.0.0.0 --baseURL http://$(hostname -f):1313
 ```
 
 <!-- TODO: add contact info (how to reach the CLIG creators with questions) -->
