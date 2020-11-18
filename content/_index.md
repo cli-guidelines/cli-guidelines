@@ -272,7 +272,7 @@ The concise help text should only include:
 `jq` does this well.
 When you type `jq`, it displays an introductory description and an example, then prompts you to pass `jq --help` for the full listing of flags:
 
-```bash
+```
 $ jq
 jq - commandline JSON processor [version 1.6]
 
