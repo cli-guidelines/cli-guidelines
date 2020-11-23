@@ -88,6 +88,7 @@ body {
    }
    #TableOfContents > ul {
       position: -webkit-sticky;
+      position: sticky;
       top: 0;
       padding: calc(1.4em *0.5) 0;
       height: 100vh;
@@ -102,6 +103,12 @@ body {
 }
 
 @media (min-width: 901px) and (min-height: 900px) {
+   #TableOfContents > ul {
+      padding-top: 1.4em;
+   }
+}
+
+@media (min-width: 1401px) and (min-height: 900px) {
    #TableOfContents > ul {
       padding-top: calc(1.4em * 2);
    }
@@ -119,6 +126,7 @@ body {
    right: 0;
    z-index: 100;
    -webkit-backdrop-filter: blur(3px);
+   backdrop-filter: blur(3px);
 }
 
 #menu-button {
@@ -131,6 +139,7 @@ body {
    }
    #menu-button {
       display: inline-block;
+      width: 100%;
       position: fixed;
       top: 0;
       left: 0;
@@ -167,6 +176,10 @@ body {
    }
 }
 
+#TableOfContents > ul > li {
+   padding: 0 1.4em;
+}
+
 #TableOfContents ul li + li {
    padding-top: calc(1.4em *0.25);
 }
@@ -184,8 +197,7 @@ body {
 }
 
 #TableOfContents a {
-   display: block;
-   padding: 0 1.4em;
+   display: ineline-block;
    opacity: 0.5;
    transition: opacity 0.3s ease;
 }
@@ -200,11 +212,10 @@ body {
    opacity: 1;
 }
 
-@media (max-width: 901px) {
+@media (max-width: 900px) {
    #TableOfContents a {
       font-size: 200%;
       opacity: 1;
-      padding: 0 calc(1.4em *0.5);
    }
 }
 
@@ -275,6 +286,7 @@ section section:after {
 
 h2, h3 {
    position: -webkit-sticky;
+   position: sticky;
    top: 0;
    margin: 0 -1.4em;
    padding: calc(1.4em *0.5) 7em 1.4em 5.4em;
@@ -282,6 +294,12 @@ h2, h3 {
 }
 
 @media (min-width: 901px) and (min-height: 900px) {
+   h2, h3 {
+      padding-top: 1.4em;
+   }
+}
+
+@media (min-width: 1401px) and (min-height: 900px) {
    h2, h3 {
       padding-top: calc(1.4em * 2);
    }
@@ -391,7 +409,7 @@ h2:after, h3:after {
 a:focus, button:focus {
    color: rgb(255,255,255);
    background: rgb(31, 76, 255);
-   outline: 5px solid rgb(31, 76, 255);
+   outline: none;
    text-decoration: underline;
 }
 
