@@ -139,6 +139,11 @@ body {
    list-style: none;
 }
 
+#TableOfContents > ul {
+   max-width: 12em;
+   margin: 0 auto;
+}
+
 #TableOfContents ul li + li {
    padding-top: calc(1.3em *0.25);
 }
@@ -177,11 +182,6 @@ body {
 main {
    padding: 0 1.3em;
    margin: 0 auto;
-}
-
-section section {
-   padding-bottom: 50vh;
-   background: white;
 }
 
 section section:last-child {
@@ -244,7 +244,7 @@ section section:last-child {
 h2, h3 {
    position: -webkit-sticky;
    top: 0;
-   margin: 0 -1.3em;
+   margin: 50vh -1.3em 0;
    padding: calc(1.3em *0.5) 1.3em;
 }
 
