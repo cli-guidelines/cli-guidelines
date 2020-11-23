@@ -76,3 +76,13 @@ function startNavObservation() {
     });
 
 }
+
+// Script to hide/show menu
+var button = document.querySelector('#menu-button');
+var menu = document.querySelector('#TableOfContents');
+button.addEventListener('click', function (event) {
+    document.body.classList.add("menu-open");
+});
+menu.addEventListener('click', function (event) {
+    document.body.classList.remove("menu-open");
+});
