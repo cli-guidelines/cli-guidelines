@@ -1,14 +1,26 @@
 @font-face {
-   font-family: 'CLIG-Header'; 
+   font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 400; 
-   src: url(/EditorialNew-Regular.otf) format('opentype');
+   src: url(/iAWriterDuospace-Regular.otf) format('opentype');
 }
 @font-face {
-   font-family: 'CLIG-Body'; 
-   font-style: normal; 
+   font-family: 'CLIG'; 
+   font-style: italic; 
    font-weight: 400; 
-   src: url(/CrimsonPro-Light.ttf) format('opentype');
+   src: url(/iAWriterDuospace-Italic.otf) format('opentype');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: normal; 
+   font-weight: 800; 
+   src: url(/NeueMontreal-Bold.otf) format('opentype');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: italic; 
+   font-weight: 800; 
+   src: url(/NeueMontreal-BoldItalic.otf) format('opentype');
 }
 
 * {
@@ -27,18 +39,19 @@
 }
 
 html {
-   font-family: 'CLIG-Body';
+   font-family: 'CLIG';
+   font-weight: 800;
    font-size: 1vw;
    -webkit-font-smoothing: antialiased;
    text-align: left;
+   -webkit-hyphens: auto;
    hyphens: auto;
+   text-underline-offset: 0.4em;
 }
 
 body {
    font-size: 4.5rem;
-   line-height: 1.3;
-   color: #000;
-   background: white;
+   line-height: 1.4;
 }
 @media (min-width: 600px) {
    body {
@@ -76,7 +89,7 @@ body {
    #TableOfContents > ul {
       position: -webkit-sticky;
       top: 0;
-      padding: calc(1.3em *0.5) 0;
+      padding: calc(1.4em *0.5) 0;
       height: 100vh;
       box-sizing: border-box;
       overflow: scroll;
@@ -85,6 +98,12 @@ body {
       grid-column: 1 / 3;
       grid-row: 1 / 2;
       box-sizing: border-box;
+   }
+}
+
+@media (min-width: 901px) and (min-height: 900px) {
+   #TableOfContents > ul {
+      padding-top: calc(1.4em * 2);
    }
 }
 
@@ -98,15 +117,15 @@ body {
    left: 0;
    bottom: 0;
    right: 0;
-   background: white;
    z-index: 100;
+   -webkit-backdrop-filter: blur(3px);
 }
 
 #menu-button {
    display: none;
 }
 
-@media (max-width: 901px) {
+@media (max-width: 900px) {
    .menu-open {
       overflow: hidden;
    }
@@ -114,8 +133,10 @@ body {
       display: inline-block;
       position: fixed;
       top: 0;
+      left: 0;
       right: 0;
-      padding: calc(1.3em *0.5) 1.3em;
+      text-align: right;
+      padding: calc(1.4em *0.5) 1.4em;
       z-index: 200;
       border: none;
       background: none;
@@ -128,7 +149,7 @@ body {
       display: none;
       position: fixed;
       overflow: scroll;
-      padding: calc(1.3em *0.5) 0 1.3em;
+      padding: calc(1.4em *0.5) 0 1.4em;
    }
    .menu-open #TableOfContents {
       display: block;
@@ -139,18 +160,20 @@ body {
    list-style: none;
 }
 
-#TableOfContents > ul {
-   max-width: 12em;
-   margin: 0 auto;
+@media (min-width: 901px) {
+   #TableOfContents > ul {
+      max-width: 14em;
+      margin: 0 auto;
+   }
 }
 
 #TableOfContents ul li + li {
-   padding-top: calc(1.3em *0.25);
+   padding-top: calc(1.4em *0.25);
 }
 
 #TableOfContents ul ul {
    padding-top: 0.5em;
-   padding-left: 1.3em;
+   padding-left: 1.4em;
    font-size: 75%;
 }
 
@@ -162,9 +185,15 @@ body {
 
 #TableOfContents a {
    display: block;
-   padding: 0 1.3em;
+   padding: 0 1.4em;
    opacity: 0.5;
    transition: opacity 0.3s ease;
+}
+
+#TableOfContents a:hover,
+#TableOfContents a:focus {
+   opacity: 1;
+   text-decoration: underline;
 }
 
 #TableOfContents .active > a {
@@ -175,13 +204,12 @@ body {
    #TableOfContents a {
       font-size: 200%;
       opacity: 1;
-      padding: 0 calc(1.3em *0.5);
+      padding: 0 calc(1.4em *0.5);
    }
 }
 
 main {
-   padding: 0 1.3em;
-   margin: 0 auto;
+   padding: 0 1.4em;
 }
 
 section section:last-child {
@@ -190,14 +218,11 @@ section section:last-child {
 
 @media (min-width: 901px) {
    #command-line-interface-guidelines > section {
-      margin: 0 auto;
-      max-width: 34em;
       padding-left: 25%;
    }
 }
 
 #command-line-interface-guidelines > h1 {
-   font-family: 'CLIG-Header';
    height: 75vh;
    margin: 0;
    display: flex;
@@ -206,19 +231,19 @@ section section:last-child {
    box-sizing: border-box;
    padding: 0.5em 0 0;
    text-align: center;
-   font-size: 15.5vw;
+   font-size: 14vw;
    line-height: 1;
    letter-spacing: -0.02em;
 }
 
 @media (min-width: 750px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 16.5vw;
+      font-size: 15vw;
    }
 }
 @media (min-width: 1000px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 17.25vw;
+      font-size: 15vw;
    }
 }
 @media (min-width: 1300px) {
@@ -236,40 +261,137 @@ section section:last-child {
    justify-content: center;
    margin: 0 auto;
    box-sizing: border-box;
-   padding: calc(1.3em *0.5) 0 1.3em;
+   padding: 0 0 1.4em;
    text-align: center;
    max-width: 30em;
+}
+
+section section:after {
+   content: " ";
+   display: block;
+   width: 100%;
+   height: 50vh;
 }
 
 h2, h3 {
    position: -webkit-sticky;
    top: 0;
-   margin: 50vh -1.3em 0;
-   padding: calc(1.3em *0.5) 1.3em;
+   margin: 0 -1.4em;
+   padding: calc(1.4em *0.5) 7em 1.4em 5.4em;
+   z-index: 50;
+}
+
+@media (min-width: 901px) and (min-height: 900px) {
+   h2, h3 {
+      padding-top: calc(1.4em * 2);
+   }
+}
+
+h2:before, h3:before {
+   content: "CLIG.";
+   display: inline-block;
+   font-weight: 400;
+   font-style: italic;
+   width: 4em;
+   position: relative;
+   margin-left: -4em;
 }
 
 h2:after, h3:after {
    content: " ";
    position: absolute;
-   top: calc(1.3em *-0.5);
+   top: calc(1.4em *-0.5);
    left: 0;
    right: 0;
-   bottom: calc(1.3em *-0.5);
-   background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%);
+   bottom: 0;
    z-index: -1;
 }
 
-p {
-   margin: 1.3em 0;
+h4, h5, h6 {
+   padding: calc(1.4em *0.5) 0;
+}
+
+main p, 
+main ol, 
+main ul {
+   margin: 1.4em 0;
+   font-weight: 400;
+}
+
+main ol, 
+main ul {
+   padding-left: 2em;
+}
+
+main a {
+   text-decoration: underline;
+}
+
+@media (min-width: 750px) {
+   #command-line-interface-guidelines section p,
+   #command-line-interface-guidelines section ol,
+   #command-line-interface-guidelines section ul {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 26em;
+      position: relative;
+      left: 3%;
+   }
+}
+
+@media (min-width: 900px) {
+   #command-line-interface-guidelines section p,
+   #command-line-interface-guidelines section ol,
+   #command-line-interface-guidelines section ul {
+      max-width: 34em;
+      left: 0;
+   }
 }
 
 h2+p, h3+p {
-   margin-top: calc(1.3em *0.5);
+   margin-top: calc(1.4em *0.5);
 }
 
 pre {
    overflow: hidden;
    color: white;
    background: black;
-   /* display: none; */
+   display: none;
 }
+
+
+
+
+
+body {
+   color: rgba(0,0,0,1);
+   background: rgba(255,255,255,1);
+}
+#TableOfContents {
+   background: rgba(255,255,255,0.6);
+}
+h2:after, h3:after {
+   background: rgba(255,255,255,1);
+   box-shadow: 0 0 25px rgba(255,255,255,1);
+}
+@media (prefers-color-scheme: dark) {
+   body {
+      color: rgba(255,255,255,1);
+      background: rgba(0,0,0,1);
+   }
+   #TableOfContents {
+      background: rgba(0,0,0,0.6);
+   }
+   h2:after, h3:after {
+      background: rgba(0,0,0,1);
+      box-shadow: 0 0 25px rgba(0,0,0,1);
+   }
+}
+
+a:focus, button:focus {
+   color: rgb(255,255,255);
+   background: rgb(31, 76, 255);
+   outline: 5px solid rgb(31, 76, 255);
+   text-decoration: underline;
+}
+

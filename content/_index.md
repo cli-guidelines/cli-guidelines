@@ -78,7 +78,7 @@ They had more in common with functions in a programming language than with graph
 Today, even though many CLI programs are used primarily (or even exclusively) by humans, a lot of their interaction design still carries the baggage of the past.
 It’s time to shed some of this baggage: if a command is going to be used primarily by humans, it should be designed for humans first.
 
-### Simple parts that work together {#simple-parts-that-work-together}
+### Simple parts that work&nbsp;together {#simple-parts-that-work-together}
 
 A core tenet of [the original UNIX philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) is the idea that small, simple programs with clean interfaces can be combined to build larger systems.
 Rather than stuff more and more features into those programs, you make programs that are modular enough to be recombined as needed.
@@ -139,7 +139,7 @@ There are lots of ideas that can be stolen from GUIs to make CLIs easier to lear
 
 Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines
 
-### Conversation as the norm {#conversation-as-the-norm}
+### Conversation as the&nbsp;norm {#conversation-as-the-norm}
 
 GUI design, particularly in its early days, made heavy use of _metaphor_: desktops, files, folders, recycle bins.
 It made a lot of sense, because computers were still trying to bootstrap themselves into legitimacy.
