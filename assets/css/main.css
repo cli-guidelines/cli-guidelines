@@ -16,6 +16,12 @@
    font-weight: 800; 
    src: url(/EditorialNew-Regular.woff2) format('woff2');
 }
+@font-face {
+   font-family: 'CLIG-PRE'; 
+   font-style: normal; 
+   font-weight: 400; 
+   src: url(/iAWriterMonoS-Regular.woff2) format('woff2');
+}
 
 * {
    font-family: inherit;
@@ -363,13 +369,44 @@ main a {
    text-decoration: underline;
 }
 
+h2+p, h3+p {
+   margin-top: calc(1.4em *0.5);
+}
+
+code {
+   font-family: 'CLIG-PRE';
+   padding: 0 0.25em;
+}
+
+pre {
+   display: block;
+   position: relative;
+   width: 100%;
+   box-sizing: border-box;
+   margin: 7rem auto;
+   padding: 2.5em 2px 2px;
+   font-size: 14px;
+   line-height: 1.8;
+   color: white;
+   border-radius: 7px;
+   border: 1px solid;
+}
+
+pre code {
+   display: block;
+   overflow-x: scroll;
+   padding: 3em 3rem;
+   border-radius: 1px 1px 5px 5px;
+}
+
 @media (min-width: 750px) {
    #command-line-interface-guidelines section p,
    #command-line-interface-guidelines section ol,
-   #command-line-interface-guidelines section ul {
+   #command-line-interface-guidelines section ul,
+   #command-line-interface-guidelines section pre {
       margin-left: auto;
       margin-right: auto;
-      max-width: 26em;
+      max-width: 78rem;
       position: relative;
       left: 3%;
    }
@@ -378,24 +415,12 @@ main a {
 @media (min-width: 900px) {
    #command-line-interface-guidelines section p,
    #command-line-interface-guidelines section ol,
-   #command-line-interface-guidelines section ul {
-      max-width: 34em;
+   #command-line-interface-guidelines section ul,
+   #command-line-interface-guidelines section pre {
+      max-width: 54rem;
       left: 0;
    }
 }
-
-h2+p, h3+p {
-   margin-top: calc(1.4em *0.5);
-}
-
-pre {
-   overflow: hidden;
-   color: white;
-   background: black;
-   display: none;
-}
-
-
 
 
 
@@ -410,6 +435,13 @@ h2:after, h3:after {
    background: rgba(255,255,255,1);
    box-shadow: 0 0 25px rgba(255,255,255,1);
 }
+pre {
+   border-color: rgb(0,0,0);
+}
+code {
+   color: rgb(255,255,255);
+   background: rgb(0,0,0);
+}
 @media (prefers-color-scheme: dark) {
    body {
       color: rgba(255,255,255,1);
@@ -421,6 +453,12 @@ h2:after, h3:after {
    h2:after, h3:after {
       background: rgba(0,0,0,1);
       box-shadow: 0 0 25px rgba(0,0,0,1);
+   }
+   pre {
+      border-color: rgb(50,50,50);
+   }
+   code {
+      background: rgb(50,50,50);
    }
 }
 
