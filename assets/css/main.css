@@ -293,10 +293,10 @@ h2, h3 {
 }
 
 h2:before, h3:before {
-   content: "CLIG.";
+   content: "CLIG:";
    display: inline-block;
    font-weight: 400;
-   font-style: italic;
+   /* font-style: italic; */
    width: 4em;
    position: relative;
    margin-left: -4em;
