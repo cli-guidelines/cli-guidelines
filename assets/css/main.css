@@ -282,7 +282,7 @@ h2, h3 {
    position: sticky;
    top: 0;
    margin: 0 -1.4em;
-   padding: calc(1.4em *0.5) 7em 1.4em 5.4em;
+   padding: calc(1.4em *0.5) 7em calc(1.4em *0.5) 5.4em;
    z-index: 50;
 }
 
@@ -302,7 +302,6 @@ h2:before, h3:before {
    content: "CLIG:";
    display: inline-block;
    font-weight: 400;
-   /* font-style: italic; */
    width: 4em;
    position: relative;
    margin-left: -4em;
