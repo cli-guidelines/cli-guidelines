@@ -2,25 +2,19 @@
    font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 400; 
-   src: url(/iAWriterDuospace-Regular.otf) format('opentype');
+   src: url(/iAWriterDuospace-Regular.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: italic; 
    font-weight: 400; 
-   src: url(/iAWriterDuospace-Italic.otf) format('opentype');
+   src: url(/iAWriterDuospace-Italic.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 800; 
-   src: url(/NeueMontreal-Bold.otf) format('opentype');
-}
-@font-face {
-   font-family: 'CLIG'; 
-   font-style: italic; 
-   font-weight: 800; 
-   src: url(/NeueMontreal-BoldItalic.otf) format('opentype');
+   src: url(/EditorialNew-Regular.woff2) format('woff2');
 }
 
 * {
@@ -47,6 +41,7 @@ html {
    -webkit-hyphens: auto;
    hyphens: auto;
    text-underline-offset: 0.4em;
+   text-decoration-thickness: 1px;
 }
 
 body {
@@ -194,7 +189,7 @@ body {
 
 #TableOfContents a {
    display: ineline-block;
-   opacity: 0.4;
+   opacity: 0.5;
    transition: opacity 0.3s ease;
 }
 
@@ -234,19 +229,19 @@ main {
    box-sizing: border-box;
    padding: 0.5em 0 0;
    text-align: center;
-   font-size: 14vw;
+   font-size: 15.5vw;
    line-height: 1;
    letter-spacing: -0.02em;
 }
 
 @media (min-width: 750px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 15vw;
+      font-size: 16.5vw;
    }
 }
 @media (min-width: 1000px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 15vw;
+      font-size: 16vw;
    }
 }
 @media (min-width: 1300px) {
@@ -329,7 +324,7 @@ a.permalink {
    font-weight: 400;
    text-decoration: none;
    margin-left: 1em;
-   opacity: 0.4;
+   opacity: 0.5;
 }
 
 @media (max-width: 900px) {
