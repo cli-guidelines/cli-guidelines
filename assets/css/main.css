@@ -114,10 +114,6 @@ body {
    }
 }
 
-.permalink {
-   display: none;
-}
-
 #TableOfContents {
    text-align: left;
    top: 0;
@@ -198,7 +194,7 @@ body {
 
 #TableOfContents a {
    display: ineline-block;
-   opacity: 0.5;
+   opacity: 0.4;
    transition: opacity 0.3s ease;
 }
 
@@ -221,10 +217,6 @@ body {
 
 main {
    padding: 0 1.4em;
-}
-
-section section:last-child {
-   padding-bottom: 0;
 }
 
 @media (min-width: 901px) {
@@ -281,7 +273,7 @@ section section:after {
    content: " ";
    display: block;
    width: 100%;
-   height: 50vh;
+   height: calc(33vh - (1.4em * 2));
 }
 
 h2, h3 {
@@ -327,6 +319,37 @@ h2:after, h3:after {
 
 h4, h5, h6 {
    padding: calc(1.4em *0.5) 0;
+}
+
+h1 a.permalink {
+   display: none;
+}
+
+a.permalink {
+   font-weight: 400;
+   text-decoration: none;
+   margin-left: 1em;
+   opacity: 0.4;
+}
+
+@media (max-width: 900px) {
+   a.permalink {
+      display: none;
+   }
+}
+
+a.permalink:hover,
+a.permalink:focus {
+   opacity: 1;
+   text-decoration: none;
+}
+
+a.permalink:hover::after,
+a.permalink:focus::after {
+   content: " permalink ";
+   font-size: 60%;
+   text-transform: uppercase;
+   vertical-align: middle;
 }
 
 main p, 
