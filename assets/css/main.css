@@ -13,6 +13,18 @@
 @font-face {
    font-family: 'CLIG'; 
    font-style: normal; 
+   font-weight: 600; 
+   src: url(/iAWriterDuospace-Bold.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: italic; 
+   font-weight: 600; 
+   src: url(/iAWriterDuospace-BoldItalic.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: normal; 
    font-weight: 800; 
    src: url(/EditorialNew-Regular.woff2) format('woff2');
 }
@@ -366,6 +378,10 @@ main ul {
 
 main a {
    text-decoration: underline;
+}
+
+main strong {
+   font-weight: 600;
 }
 
 h2+p, h3+p {
