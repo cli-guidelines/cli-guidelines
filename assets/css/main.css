@@ -48,6 +48,8 @@
     
    color: inherit;
    text-decoration: none;
+   text-underline-offset: 0.3em;
+   text-decoration-thickness: 1px;
 }
 
 html {
@@ -58,8 +60,6 @@ html {
    text-align: left;
    -webkit-hyphens: auto;
    hyphens: auto;
-   text-underline-offset: 0.4em;
-   text-decoration-thickness: 1px;
 }
 
 body {
