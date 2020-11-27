@@ -86,7 +86,7 @@ body {
       font-size: 1.6rem;
    }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
    body {
       font-size: 24px;
    }
@@ -267,7 +267,7 @@ main {
       font-size: 16vw;
    }
 }
-@media (min-width: 1300px) {
+@media (min-width: 1400px) {
    #command-line-interface-guidelines > h1 {
       font-size: 180px;
       max-width: 6em;
@@ -284,7 +284,7 @@ main {
    box-sizing: border-box;
    padding: 0 0 1.4em;
    text-align: center;
-   max-width: 30em;
+   max-width: 30.5em;
 }
 
 section section:after {
