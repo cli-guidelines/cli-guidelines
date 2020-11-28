@@ -40,7 +40,6 @@ function convertToNestedSections(rootElement) {
             const permalink = document.createElement('a');
             permalink.setAttribute('href', `#${id}`);
             permalink.classList.add('permalink');
-            permalink.textContent = '#';
             element.appendChild(permalink);
 
             currentSection.appendChild(newSection);

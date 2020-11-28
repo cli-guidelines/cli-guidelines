@@ -342,6 +342,10 @@ h1 a.permalink {
    display: none;
 }
 
+a.permalink::before {
+   content: "#";
+}
+
 a.permalink {
    font-weight: 400;
    text-decoration: none;
