@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     convertToNestedSections(document.querySelector('main'));
+    addParentHeadingAttribute();
     startNavObservation();
 
 });
@@ -49,6 +50,18 @@ function convertToNestedSections(rootElement) {
         }
 
         currentSection.appendChild(element);
+    });
+}
+
+function addParentHeadingAttribute() {
+    const selector = 'h1,h2,h3,h4,h5,h6';
+
+    document.querySelectorAll(selector).forEach(heading => {
+        const parentHeading = heading.parentElement.parentElement.querySelector(selector);
+
+        if (parentHeading) {
+            heading.setAttribute('data-parent-heading', parentHeading.textContent);
+        }
     });
 }
 
