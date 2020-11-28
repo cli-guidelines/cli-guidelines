@@ -298,9 +298,13 @@ h2, h3 {
    position: -webkit-sticky;
    position: sticky;
    top: 0;
-   margin: 0 -1.4em;
-   padding: calc(1.4em *0.5) 7em calc(1.4em *0.5) 5.4em;
+   margin: 0 0;
+   padding: calc(1.4em *0.5) 7em calc(1.4em *0.5) 0;
    z-index: 50;
+}
+
+h3 {
+   white-space: nowrap;
 }
 
 @media (min-width: 901px) and (min-height: 900px) {
@@ -316,12 +320,22 @@ h2, h3 {
 }
 
 h2:before, h3:before {
-   content: "CLIG:";
+   content: "CLIG: ";
+}
+
+@media (min-width: 750px) {
+   h3:before {
+      content: "(CLIG) "attr(data-parent-heading)": ";
+   }
+}
+
+
+h2:before, h3:before {
    display: inline-block;
    font-weight: 400;
-   width: 4em;
+   padding-right: 0.5em;
    position: relative;
-   margin-left: -4em;
+   opacity: 0.5;
 }
 
 h2:after, h3:after {
