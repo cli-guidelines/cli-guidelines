@@ -339,6 +339,8 @@ TK example?
 **If you’ve got loads of examples, put them somewhere else,** in a cheat sheet command or a web page.
 It’s useful to have exhaustive, advanced examples, but you don’t want to make your help text really long.
 
+For more complex use cases, e.g. when integrating with another tool, it might be appropriate to write a fully-fledged tutorial.
+
 **Don’t bother with man pages.**
 We believe that if you’re following these guidelines for help and documentation, you won’t need man pages.
 Not enough people use man pages, and they don’t work on Windows.
@@ -382,9 +384,6 @@ examine the history and state (see also: git help revisions)
    status     Show the working tree status
 …
 ```
-
-TK **Write use-case-driven documentation.**
-If your help text shows people how to use all of the commands and flags, your documentation should tutorials with end-to-end examples of common flows.
 
 **Use formatting in your help text.**
 Bold headings make it much easier to scan.
