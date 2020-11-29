@@ -580,11 +580,11 @@ _Further reading: [no-color.org](https://no-color.org/), [12 Factor CLI Apps](ht
 **If `stdout` is not an interactive terminal, don’t display any animations.**
 This will stop progress bars turning into Christmas trees in CI log output.
 
-**Use symbols and Emoji where it makes things clearer.**
-(TK is emoji capitalized or not?) Pictures can be better than words if you need to make several things distinct, catch the user’s attention, or just add a bit of character.
+**Use symbols and emoji where it makes things clearer.**
+Pictures can be better than words if you need to make several things distinct, catch the user’s attention, or just add a bit of character.
 Be careful though -- it can be easy to overdo it and make your program look cluttered or feel like a toy.
 
-For example, [yubikey-agent](https://github.com/FiloSottile/yubikey-agent) uses Emoji to add structure to the output so it isn’t just a wall of text, and a ❌ to draw your attention to an important piece of information:
+For example, [yubikey-agent](https://github.com/FiloSottile/yubikey-agent) uses emoji to add structure to the output so it isn’t just a wall of text, and a ❌ to draw your attention to an important piece of information:
 
 ```shell-session
 $ yubikey-agent -setup
