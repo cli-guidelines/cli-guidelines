@@ -463,8 +463,10 @@ Alternatively, you could print a log message to `stderr`.
 
 **Human-readable output is paramount.**
 Humans come first, machines second.
-If `stderr` is an interactive terminal (a TTY), assume you’re talking to a human.
-(TK resolve comments)
+The most simple and straightforward heuristic for whether a particular output stream (`stdout` or `stderr`) is being read by a human is _whether or not it’s a TTY_.
+Whatever language you’re using, it will have a utility or library for doing this (e.g. [Python](https://stackoverflow.com/questions/858623/how-to-recognize-whether-a-script-is-running-on-a-tty), [Node](https://nodejs.org/api/process.html#process_a_note_on_process_i_o), [Go](https://github.com/mattn/go-isatty)).
+
+_Further reading on [what a TTY is](https://unix.stackexchange.com/a/4132)._
 
 **Have machine-readable output where it does not impact usability.**
 Streams of text is the universal interface in UNIX.
