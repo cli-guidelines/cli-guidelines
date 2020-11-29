@@ -225,7 +225,7 @@ On the other hand, if you’ve thought about it and determined that a rule is wr
 (There’s no central authority that will reject your program for not following arbitrary rules.)
 
 Also—these rules aren’t written in stone.
-(TK See that edit button below?) If you disagree with a general rule for good reason, we hope you’ll propose a change.
+If you disagree with a general rule for good reason, we hope you’ll [propose a change](https://github.com/cli-guidelines/cli-guidelines).
 
 ### The Basics {#the-basics}
 
