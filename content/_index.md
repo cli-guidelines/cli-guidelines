@@ -1011,15 +1011,7 @@ The “environment” of an environment variable is the terminal session—the c
 So, an env var might change each time a command runs, or between terminal sessions on one machine, or between instantiations of one project across several machines.
 
 Environment variables may duplicate the functionality of flags or configuration parameters, or they may be distinct from those things.
-
-Here are some common uses for environment variables:
-
-- Setting the level of debugging output
-- Providing a non-default path to items needed for a program to start
-- Enabling a safe mode or dry run of a program
-- Specifying how or whether color should appear in output
-- Seeding a random number generator with external data
-- Passing sensitive credentials to a program without logging them in any way
+See [Configuration](#configuration) for a breakdown of common types of configuration and recommendations on when environment variables are most appropriate.
 
 **For maximum portability, environment variable names must only contain letters, numbers, and underscores (and mustn't start with a number).**
 Which means `O_O` and `OwO` are the only emoticons that are also valid environment variable names.
