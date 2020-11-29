@@ -946,9 +946,7 @@ $  docker-compose up
 Your program should expect to be started in a situation where clean-up has not been run.
 (See [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).)
 
-### Configuration and caching {#configuration-and-caching}
-
-(TK maybe just "Configuration"? Caching doesn't seem to be part of this)
+### Configuration {#configuration}
 
 **Follow the XDG-spec.**
 In 2010 the X Desktop Group, now [freedesktop.org](https://freedesktop.org), developed a specification for the location of base directories where config files may be located.
