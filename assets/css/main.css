@@ -396,7 +396,7 @@ main ul {
 
 main ol li, 
 main ul li {
-   padding-left: 1.4em;
+   padding-left: 2.2em;
 }
 
 main ul li {
@@ -407,11 +407,27 @@ main ul li:before {
    content: " ";
    position: relative;
    float: left;
-   margin-left: -1.4em;
+   margin-left: -1.6em;
    top: 0.4em;
    width: 0.6em;
    height: 0.6em;
    border-radius: 50%;
+}
+
+main ol {
+   counter-reset: ordered-list;
+}
+
+main ol > li {
+   list-style: none;
+   counter-increment: ordered-list;
+}
+
+main ol > li:before {
+   content: counter(ordered-list)". ";
+   float: left;
+   min-width: 2.2em;
+   margin-left: -2.2em;
 }
 
 main a {
