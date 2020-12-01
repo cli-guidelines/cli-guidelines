@@ -18,8 +18,8 @@ Developer Advocate at [Smallstep](https://smallstep.com/), first engineer at Zip
 [tashian.com](https://tashian.com/) [@tashian](https://twitter.com/tashian)
 
 **Eva Parish** \
-Senior Technical Writer at Squarespace.\
-[evaparish.com](https://evaparish.com/)
+Senior Technical Writer at Squarespace, O’Reilly contributor.\
+[evaparish.com](https://evaparish.com/) [@evpari](https://twitter.com/evpari)
 
 Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for early contributions, and Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Jacob Maine, James Coglan, and Steve Klabnik for reviewing drafts.
 
