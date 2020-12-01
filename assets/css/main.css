@@ -140,6 +140,11 @@ body {
    backdrop-filter: blur(3px);
 }
 
+/* Don't show authors in table of contents */
+a[href='#authors'] {
+   display: none;
+}
+
 #menu-button {
    display: none;
 }

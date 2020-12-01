@@ -2,6 +2,27 @@
 
 An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
 
+
+## Authors {#authors}
+
+**Aanand Prasad** \
+Engineer at Squarespace, co-creator of Docker Compose. \
+[@aanandprasad](https://twitter.com/aanandprasad)
+
+**Ben Firshman** \
+Building [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
+[@bfirsh](https://twitter.com/bfirsh)
+
+**Carl Tashian** \
+Developer Advocate at [Smallstep](https://smallstep.com/), first engineer at Zipcar, co-founder Trove. \
+[tashian.com](https://tashian.com/) [@tashian](https://twitter.com/tashian)
+
+**Eva Parish** \
+Senior Technical Writer at Squarespace.\
+[evaparish.com](https://evaparish.com/)
+
+Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for early contributions, and Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Jacob Maine, James Coglan, and Steve Klabnik for reviewing drafts.
+
 ## Foreword {#foreword}
 
 In the 1980s, if you wanted a personal computer to do something for you, you needed to know what to type when confronted with `C:\>` or `~$`.
