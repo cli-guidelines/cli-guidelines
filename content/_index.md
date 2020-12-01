@@ -908,9 +908,17 @@ The only way to make an interface easy to use is to iterate on it, and if the ou
 Encourage your users to use `--plain` or `--json` in scripts to keep output stable (see [Output](#output)).
 
 **Don’t have a catch-all subcommand.**
-For example, Yarn lets you omit the word `run`.
-You can define a script called `foo` in `package.json` and then invoke it with just `yarn foo` instead of `yarn run foo`.
-This means that Yarn can no longer add any subcommands without potentially breaking someone’s script somewhere.
+If you have a subcommand that’s likely to be the most-used one, you might be tempted to let people omit it entirely for brevity’s sake.
+For example, say you have a `run` command that wraps an arbitrary shell command:
+
+    $ mycmd run echo "hello world"
+
+You could make it so that if the first argument to `mycmd` isn’t the name of an existing subcommand, you assume the user means `run`, so they can just type this:
+
+    $ mycmd echo "hello world"
+
+This has a serious drawback, though: now you can never add a subcommand named `echo`—or _anything at all_—without risking breaking existing usages.
+If there’s a script out there that uses `mycmd echo`, it will do something entirely different after that user upgrades to the new version of your tool.
 
 **Don’t allow arbitrary abbreviations of subcommands.**
 For example, say your command has an `install` subcommand.
