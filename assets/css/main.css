@@ -58,8 +58,6 @@ html {
    font-size: 1vw;
    -webkit-font-smoothing: antialiased;
    text-align: left;
-   -webkit-hyphens: auto;
-   hyphens: auto;
 }
 
 body {
@@ -86,9 +84,9 @@ body {
       font-size: 1.6rem;
    }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
    body {
-      font-size: 24px;
+      font-size: 17px;
    }
 }
 
@@ -120,13 +118,13 @@ body {
    }
 }
 
-@media (min-width: 901px) and (min-height: 900px) {
+@media (min-width: 901px) and (min-height: 800px) {
    #TableOfContents > ul {
-      padding-top: 1.4em;
+      padding-top: calc(1.4em * 1.5);
    }
 }
 
-@media (min-width: 1401px) and (min-height: 900px) {
+@media (min-width: 1401px) and (min-height: 800px) {
    #TableOfContents > ul {
       padding-top: calc(1.4em * 2);
    }
@@ -307,13 +305,13 @@ h3 {
    white-space: nowrap;
 }
 
-@media (min-width: 901px) and (min-height: 900px) {
+@media (min-width: 901px) and (min-height: 800px) {
    h2, h3 {
-      padding-top: 1.4em;
+      padding-top: calc(1.4em * 1.5);
    }
 }
 
-@media (min-width: 1401px) and (min-height: 900px) {
+@media (min-width: 1401px) and (min-height: 800px) {
    h2, h3 {
       padding-top: calc(1.4em * 2);
    }
@@ -486,7 +484,7 @@ pre code {
    #command-line-interface-guidelines section ol,
    #command-line-interface-guidelines section ul,
    #command-line-interface-guidelines section pre {
-      max-width: 54rem;
+      max-width: 58rem;
       left: 0;
    }
 }
