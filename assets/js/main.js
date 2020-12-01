@@ -65,7 +65,26 @@ function addParentHeadingAttribute() {
     });
 }
 
-// https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/
+// https://tj.ie/building-a-table-of-contents-with-the-intersection-observer-api/
+// TODO(bfirsh): this could be improved with a scroll handler.
+// It should probably highlight a section if it is _mostly_ visible on a page, with some special cases around parent sections. This is basically impossible to do with visibility API.
+
+function highlightFirstActive() {
+    document.querySelectorAll("nav li").forEach(link => {
+        link.classList.remove('active')
+    })
+
+    let firstVisibleLink = document.querySelector('nav li.visible');
+    if (firstVisibleLink) {
+        let firstVisibleChild = firstVisibleLink.querySelector("li.visible");
+        if (firstVisibleChild) {
+            firstVisibleChild.classList.add('active')
+        } else {
+            firstVisibleLink.classList.add('active')
+        }
+    }
+}
+
 function startNavObservation() {
 
     const observer = new IntersectionObserver(entries => {
@@ -74,12 +93,13 @@ function startNavObservation() {
             const link = document.querySelector(`nav li a[href="#${id}"]`);
             if (link) {
                 if (entry.intersectionRatio > 0) {
-                    link.parentElement.classList.add('active');
+                    link.parentElement.classList.add('visible');
                 } else {
-                    link.parentElement.classList.remove('active');
+                    link.parentElement.classList.remove('visible');
                 }
             }
         });
+        highlightFirstActive();
     });
 
     // Track all sections that have an `id` applied

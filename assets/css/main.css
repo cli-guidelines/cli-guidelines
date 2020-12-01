@@ -292,6 +292,11 @@ main {
    max-width: 30.5em;
 }
 
+/* HACK: this makes the table of contents highlighting work when you click on a link in the table of contents */
+section {
+   margin-bottom: 1px;
+}
+
 section section:after {
    content: " ";
    display: block;
