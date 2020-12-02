@@ -1,8 +1,10 @@
-# Command-line Interface Guidelines
+# Command Line Interface Guidelines
 
-Command-line interfaces gives users great power, but can also be hard to use. The design of command-line tools has been greatly influenced by the [Unix programming philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). This is a modern interpretation of those ideas, along with some specific guidelines on how to create powerful, intuitive, and delightful command-line tools.
+An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
 
-## Contributing to the CLI guide
+This is the source code for the guide. To read it, go to [clig.dev](https://clig.dev/).
+
+## Contributing
 
 The content of the guide lives in a single Markdown file, [content/_index.md](content/_index.md).
 The website is built using [Hugo](https://gohugo.io/).
