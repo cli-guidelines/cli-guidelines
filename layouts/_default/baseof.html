@@ -9,6 +9,15 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <title>CLI Guidelines</title>
+        <meta name="twitter:title" content="CLI Guidelines" />
+        <meta property="og:title"  content="CLI Guidelines" />
+        
+        <meta name="description"         content="An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day." />
+        <meta name="twitter:description" content="An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day." />
+        <meta property="og:description"  content="An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day." />
+        
+        <meta name="twitter:image" content="https://clig.dev/CLIG-social-card.jpg" />
+        <meta property="og:image"  content="https://clig.dev/CLIG-social-card.jpg" />
 
         {{ $css := resources.Get "css/main.css" | resources.ToCSS }}
         <link rel="stylesheet" href="{{ $css.Permalink }}">

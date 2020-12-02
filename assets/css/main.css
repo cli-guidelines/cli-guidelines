@@ -216,7 +216,7 @@ a[href='#authors'] {
 }
 
 #TableOfContents a {
-   display: ineline-block;
+   display: inline-block;
    opacity: 0.5;
    transition: opacity 0.3s ease;
 }
