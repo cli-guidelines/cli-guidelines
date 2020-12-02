@@ -329,7 +329,7 @@ h2:before, h3:before {
 
 @media (min-width: 750px) {
    h3:before {
-      content: "(CLIG) "attr(data-parent-heading)": ";
+      content: "CLIG:"attr(data-parent-heading)" ";
    }
 }
 
