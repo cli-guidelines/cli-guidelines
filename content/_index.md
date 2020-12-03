@@ -35,7 +35,7 @@ But if you were lucky enough to have internet access, you could get help from Us
 They could either help you solve your problem, or at least provide some moral support and camaraderie.
 
 Forty years later, computers have become so much more accessible to everyone, often at the expense of low-level end user control.
-On many devices, there is no command line access at all, in part because it goes against the corporate interests of walled gardens and app stores.
+On many devices, there is no command-line access at all, in part because it goes against the corporate interests of walled gardens and app stores.
 
 Most people today don’t know what the command line is, much less why they would want to bother with it.
 As computing pioneer Alan Kay said in [a 2017 interview](https://www.fastcompany.com/40435064/what-alan-kay-thinks-about-the-iphone-and-technology-now), “Because people don't understand what computing is about, they think they have it in the iPhone, and that illusion is as bad as the illusion that 'Guitar Hero' is the same as a real guitar.”
@@ -45,7 +45,7 @@ He was talking about ways of programming computers that offer the power of the C
 There is a belief among Kay’s disciples that we need to break out of a text-based local maxima that we’ve been living in for decades.
 
 It’s exciting to imagine a future where we program computers very differently.
-Even today, spreadsheets are by far the most popular programming language, and the no code movement is taking off quickly as it attempts to replace some of the intense demand for talented programmers.
+Even today, spreadsheets are by far the most popular programming language, and the no-code movement is taking off quickly as it attempts to replace some of the intense demand for talented programmers.
 
 Yet with its creaky, decades-old constraints and inexplicable quirks, the command line is still the most _versatile_ corner of the computer.
 It lets you pull back the curtain, see what’s really going on, and creatively interact with the machine at a level of sophistication and depth that GUIs cannot afford.
@@ -64,7 +64,7 @@ In the past, the editor was inside the terminal—today, the terminal is just as
 And there’s been a proliferation of `git`-like multi-tool commands.
 Commands within commands, and high-level commands that perform entire workflows rather than atomic functions.
 
-Inspired by traditional UNIX philosophy, driven by an interest in encouraging a more delightful and accessible CLI environment, and guided by our experiences as programmers, we decided it was time to revisit the best practices and design principles for building command line programs.
+Inspired by traditional UNIX philosophy, driven by an interest in encouraging a more delightful and accessible CLI environment, and guided by our experiences as programmers, we decided it was time to revisit the best practices and design principles for building command-line programs.
 
 Long live the command line!
 
@@ -81,10 +81,10 @@ This guide is also agnostic about programming languages and tooling in general.
 
 Who is this guide for?
 - If you are creating a CLI program and you are looking for principles and concrete best practices for its UI design, this guide is for you.
-- If you are a professional “CLI UI designer”, that’s amazing - we’d love to learn from you.
+- If you are a professional “CLI UI designer,” that’s amazing—we’d love to learn from you.
 - If you’d like to avoid obvious missteps of the variety that go against 40 years of CLI design conventions, this guide is for you.
 - If you want to delight people with your program’s good design and helpful help, this guide is definitely for you.
-- If you are creating a GUI program, this guide is not for you - though you may learn some GUI anti-patterns if you decide to read it anyway.
+- If you are creating a GUI program, this guide is not for you—though you may learn some GUI anti-patterns if you decide to read it anyway.
   (Do GUI programmers even read, or do they just look at things?)
 - If you are designing an immersive, full-screen CLI port of Minecraft, this guide isn’t for you.
   (But we can’t wait to see it!)
@@ -117,7 +117,7 @@ Plain, line-based text is easy to pipe between commands.
 JSON, a much more recent invention, affords us more structure when we need it, and lets us more easily integrate command-line tools with the web.
 
 Whatever software you’re building, you can be absolutely certain that people will use it in ways you didn’t anticipate.
-Your software _will_ become a part in a larger system - your only choice is over whether it will be a well-behaved part.
+Your software _will_ become a part in a larger system—your only choice is over whether it will be a well-behaved part.
 
 Most importantly, designing for composability does not need to be at odds with designing for humans first.
 Much of the advice in this document is about how to achieve both.
@@ -152,7 +152,7 @@ When it comes to making functionality discoverable, GUIs have the upper hand.
 Everything you can do is laid out in front of you on the screen, so you can find what you need without having to learn anything, and perhaps even discover things you didn’t know were possible.
 
 It is assumed that command-line interfaces are the opposite of this—that you have to remember how to do everything.
-The original [Macintosh Human Interface Guidelines](https://www.goodreads.com/book/show/1087110.Macintosh_Human_Interface_Guidelines), published in 1992, recommend “See-and-point (instead of remember-and-type)”, as if you could only choose one or the other.
+The original [Macintosh Human Interface Guidelines](https://www.goodreads.com/book/show/1087110.Macintosh_Human_Interface_Guidelines), published in 1992, recommend “See-and-point (instead of remember-and-type),” as if you could only choose one or the other.
 
 These things needn’t be mutually exclusive.
 The efficiency of using the command-line comes from remembering commands, but there’s no reason the commands can’t help you learn and remember.
@@ -197,7 +197,7 @@ Software should _be_ robust, of course: unexpected input should be handled grace
 But it should also _feel_ robust.
 
 You want your software to feel like it isn’t going to fall apart.
-You want it to feel immediate and responsive, as if it were a big mechanical machine, not a flimsy plastic “soft switch”.
+You want it to feel immediate and responsive, as if it were a big mechanical machine, not a flimsy plastic “soft switch.”
 
 Subjective robustness requires attention to detail and thinking hard about what can go wrong.
 It’s lots of little things: keeping the user informed about what’s happening, explaining what common errors mean, not printing scary-looking stack traces.
@@ -269,12 +269,12 @@ Here are some that we like:
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
 Map the non-zero exit codes to the most important failure modes.
 
-**Send output to stdout.**
-The primary output for your command should go to stdout.
-Anything that is machine readable should also go to stdout—this is where piping sends things by default.
+**Send output to `stdout`.**
+The primary output for your command should go to `stdout`.
+Anything that is machine readable should also go to `stdout`—this is where piping sends things by default.
 
-**Send messaging to stderr.**
-Log messages, errors, and so on should all be sent to stderr.
+**Send messaging to `stderr`.**
+Log messages, errors, and so on should all be sent to `stderr`.
 This means that when commands are piped together, these messages are displayed to the user and not fed into the next command.
 
 ### Help {#help}
@@ -336,7 +336,7 @@ $ myapp -h
 Ignore any other flags and arguments that are passed—you should be able to add `-h` to the end of anything and it should show help.
 Don’t overload `-h`.
 
-If your program is a `git`-like, the following should also offer help:
+If your program is `git`-like, the following should also offer help:
 
 ```
 $ myapp help
@@ -357,7 +357,7 @@ Users tend to use examples over other forms of documentation, so show them first
 If it helps explain what it’s doing and it isn’t too long, show the actual output too.
 
 You can tell a story with a series of examples, building your way toward complex uses.
-TK example?
+<!-- TK example? -->
 
 **If you’ve got loads of examples, put them somewhere else,** in a cheat sheet command or a web page.
 It’s useful to have exhaustive, advanced examples, but you don’t want to make your help text really long.
@@ -505,7 +505,8 @@ For example, a user should be able to pipe output to `grep` and it should do wha
 
 **If human-readable output breaks machine-readable output, use `--plain` to display output in plain, tabular text format for integration with tools like `grep` or `awk`.**
 In some cases, you might need to output information in a different way to make it human-readable.
-(TK example with and without --plain) For example, if you are displaying a line-based table, you might choose to split a cell into multiple lines, fitting in more information while keeping it within the width of the screen.
+<!-- (TK example with and without --plain) -->
+For example, if you are displaying a line-based table, you might choose to split a cell into multiple lines, fitting in more information while keeping it within the width of the screen.
 This breaks the expected behavior of there being one piece of data per line, so you should provide a `--plain` flag for scripts, which disables all such manipulation and outputs one record per line.
 
 **Display output as formatted JSON if `--json` is passed.**
@@ -519,7 +520,7 @@ Traditionally, when nothing is wrong, UNIX commands display no output to the use
 This makes sense when they’re being used in scripts, but can make commands appear to be hanging or broken when used by humans.
 For example, `cp` will not print anything, even if it takes a long time.
 
-It’s rare that printing nothing at all is the best default behaviour, but it’s usually best to err on the side of less.
+It’s rare that printing nothing at all is the best default behavior, but it’s usually best to err on the side of less.
 
 For instances where you do want no output (for example, when used in shell scripts), to avoid clumsy redirection of `stderr` to `/dev/null`, you can provide a `-q` option to suppress all non-essential output.
 
@@ -569,9 +570,10 @@ This includes things like:
 - Reading or writing files that the user didn’t explicitly pass as arguments (unless those files are storing internal program state, such as a cache).
 - Talking to a remote server, e.g. to download a file.
 
-**Increase information density—with ASCII art!** (TK edit this)
-This way `ls` shows permissions— when you first see it you can ignore it, later when you learn it it becomes really valuable.
-Permissions in `ls` are “glanceable” / scannable — you can pick out patterns as you learn it.
+**Increase information density—with ASCII art!**
+For example, `ls` shows permissions in a scannable way.
+When you first see it, you can ignore most of the information.
+Then, as you learn how it works, you pick out more patterns over time.
 
 ```
 -rw-r--r-- 1 root root     68 Aug 22 23:20 resolv.conf
@@ -593,7 +595,7 @@ Don’t overuse it—if everything is a different color, then the color means no
 These things should disable colors:
 
 - `stdout` or `stderr` is not an interactive terminal (a TTY).
-  It’s best to individually check -- if you’re piping `stdout` to another program, it’s still useful to get colors on `stderr`.
+  It’s best to individually check—if you’re piping `stdout` to another program, it’s still useful to get colors on `stderr`.
 - The `NO_COLOR` environment variable is set.
 - The `TERM` environment variable has the value `dumb`.
 - The user passes the option `--no-color`.
@@ -606,7 +608,7 @@ This will stop progress bars turning into Christmas trees in CI log output.
 
 **Use symbols and emoji where it makes things clearer.**
 Pictures can be better than words if you need to make several things distinct, catch the user’s attention, or just add a bit of character.
-Be careful though -- it can be easy to overdo it and make your program look cluttered or feel like a toy.
+Be careful, though—it can be easy to overdo it and make your program look cluttered or feel like a toy.
 
 For example, [yubikey-agent](https://github.com/FiloSottile/yubikey-agent) uses emoji to add structure to the output so it isn’t just a wall of text, and a ❌ to draw your attention to an important piece of information:
 
@@ -636,7 +638,7 @@ If a piece of output serves only to help you (the developer) understand what you
 Invite usability feedback from outsiders and people who are new to your project.
 They’ll help you see important issues that you are too close to the code to notice.
 
-**Don’t treat stderr like a log file, at least not by default.**
+**Don’t treat `stderr` like a log file, at least not by default.**
 Don’t print log level labels (`ERR`, `WARN`, etc.) or extraneous contextual information, unless in verbose mode.
 
 **Use a pager (e.g. `less`) if you are outputting a lot of text.**
@@ -699,25 +701,24 @@ Having the full version is useful in scripts where you want to be verbose and de
 
 _Citation: [GNU Coding Standards](https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html)._
 
-**Only use one-letter flags for commonly used flags.**
-Particularly at the top-level when using subcommands.
+**Only use one-letter flags for commonly used flags,** particularly at the top-level when using subcommands.
 That way you don’t “pollute” your namespace of short flags, forcing you to use convoluted letters and cases for flags you add in the future.
 
 **Multiple arguments are fine for simple actions against multiple files.**
 For example, `rm file1.txt file2.txt file3.txt`.
 This also makes it work with globbing: `rm *.txt`.
 
-**If you’ve got 2 or more arguments for different things, you’re probably doing something wrong.**
+**If you’ve got two or more arguments for different things, you’re probably doing something wrong.**
 The exception is a common, primary action, where the brevity is worth memorizing.
 For example, `cp <source> <destination>`.
 
 _Citation: [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)._
 
-**Use standard names for flags, if there is one.**
+**Use standard names for flags, if there is a standard.**
 If another commonly used command uses a flag name, it’s best to follow that existing pattern.
-That way a user doesn’t have to remember two different options (and which command it applies to), and users can even guess an option without having to look at the help text.
+That way, a user doesn’t have to remember two different options (and which command it applies to), and users can even guess an option without having to look at the help text.
 
-These are a list of options that are commonly used:
+Here's a list of commonly used options:
 
 - `-a`, `--all`: All.
   For example, `ps`, `fetchmail`.
@@ -757,7 +758,7 @@ If a user doesn’t pass an argument or flag, prompt for it.
 
 **Never _require_ a prompt.**
 Always provide a way of passing input with flags or arguments.
-If stdin is not an interactive terminal, skip prompting and just require those flags/args.
+If `stdin` is not an interactive terminal, skip prompting and just require those flags/args.
 
 **Confirm before doing anything dangerous.**
 A common convention is to prompt for the user to type `y` or `yes` if running interactively, or requiring them to pass `-f` or `--force` otherwise.
@@ -766,27 +767,27 @@ A common convention is to prompt for the user to type `y` or `yes` if running in
 
 - **Mild:** A small, local change such as deleting a file.
   You might want to prompt for confirmation, you might not.
-  For example, if the user is explicitly running a command called something like “delete”, you probably don’t need to ask.
+  For example, if the user is explicitly running a command called something like “delete,” you probably don’t need to ask.
 - **Moderate:** A bigger local change like deleting a directory, a remote change like deleting a resource of some kind, or a complex bulk modification that can’t be easily undone.
   You usually want to prompt for confirmation here.
   Consider giving the user a way to “dry run” the operation so they can see what’ll happen before they commit to it.
 - **Severe:** Deleting something complex, like an entire remote application or server.
   You don’t just want to prompt for confirmation here—you want to make it hard to confirm by accident.
   Consider asking them to type something non-trivial such as the name of the thing they’re deleting.
-  Let them alternatively pass a flag such as `--confirm=”name-of-thing”`, so it’s still scriptable.
+  Let them alternatively pass a flag such as `--confirm="name-of-thing"`, so it’s still scriptable.
 
 Consider whether there are non-obvious ways to accidentally destroy things.
 For example, imagine a situation where changing a number in a configuration file from 10 to 1 means that 9 things will be implicitly deleted—this should be considered a severe risk, and should be difficult to do by accident.
 
-**If input or output is a file, support `-` to read from stdin or write to stdout.**
+**If input or output is a file, support `-` to read from `stdin` or write to `stdout`.**
 This lets the output of another command be the input of your command and vice versa, without using a temporary file.
-For example, `tar` can extract files from stdin:
+For example, `tar` can extract files from `stdin`:
 
 ```
 $ curl https://example.com/something.tar.gz | tar xvf -
 ```
 
-**If a flag can accept an optional value, allow a special word like “none”.**
+**If a flag can accept an optional value, allow a special word like “none.”**
 For example, `ssh -F` takes an optional filename of an alternative `ssh_config` file, and `ssh -F none` runs SSH with no config file. Don’t just use a blank value—this can make it ambiguous whether arguments are flag values or arguments.
 
 **If possible, make arguments, flags and subcommands order-independent.**
@@ -808,7 +809,7 @@ If possible, try to make both forms equivalent, although you might run up agains
 Let’s say your command takes a secret via a `--password` argument.
 A raw `--password` argument will leak the secret into `ps` output and potentially shell history.
 It’s easy to misuse.
-Consider allowing secrets only via files, eg. with a `--password-file` argument.
+Consider allowing secrets only via files, e.g. with a `--password-file` argument.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (One could read a password file in Bash by using `--password $(< password.txt)`.
@@ -817,8 +818,8 @@ For example, `systemd` service definitions, `exec` system calls, and some `Docke
 
 ### Interactivity {#interactivity}
 
-**Only use prompts or interactive elements if stdin is an interactive terminal (a TTY).**
-This is a pretty reliable way to tell if you’re piping data into a command or it is being run in a script, in which case a prompt won’t work and you should throw an error telling the user what flag to pass.
+**Only use prompts or interactive elements if `stdin` is an interactive terminal (a TTY).**
+This is a pretty reliable way to tell whether you’re piping data into a command or whether it's being run in a script, in which case a prompt won’t work and you should throw an error telling the user what flag to pass.
 
 **If `--no-input` is passed, don’t prompt or do anything interactive.**
 This allows users an explicit way to disable all prompts in commands.
@@ -854,7 +855,7 @@ Either `noun verb` or `verb noun` ordering works, but `noun verb` seems to be mo
 
 _Further reading: [User experience, CLIs, and breaking the world, by John Starich](https://uxdesign.cc/user-experience-clis-and-breaking-the-world-baed8709244f)._
 
-**Don’t have ambiguous/similarly-named commands.**
+**Don’t have ambiguous or similarly-named commands.**
 For example, having two subcommands called “update” and “upgrade” is quite confusing.
 You might want to use different words, or disambiguate with extra words.
 
@@ -872,9 +873,9 @@ If you’re making a network request, print something before you do it so it doe
 If your program displays no output for a while, it will look broken.
 A good spinner or progress indicator can make a program appear to be faster than it is.
 
-Ubuntu 20.04 has a nice progress bar that sticks to the bottom of the terminal:
+Ubuntu 20.04 has a nice progress bar that sticks to the bottom of the terminal.
 
-(TK reproduce this as a code block or animated SVG)
+<!-- (TK reproduce this as a code block or animated SVG) -->
 
 If the progress bar gets stuck in one place for a long time, the user won’t know if stuff is still happening or if the program’s crashed.
 It’s good to show estimated time remaining, or even just have an animated component, to reassure them that you’re still working on it.
@@ -891,9 +892,10 @@ Libraries like [tqdm](https://github.com/tqdm/tqdm) for Python and [schollz/prog
 The upside is that it can be a huge usability gain.
 For example, `docker pull`’s multiple progress bars offer crucial insight into what’s going on.
 
-(TK docker pull animation)
+<!-- (TK docker pull animation) -->
 
-One thing to be aware of: hiding logs behind progress bars when things go well makes it much easier for the user to understand what’s going on, but if there is an error, make sure you print out the logs, otherwise it is going to be very hard to debug.
+One thing to be aware of: hiding logs behind progress bars when things go _well_ makes it much easier for the user to understand what’s going on, but if there is an error, make sure you print out the logs.
+Otherwise, it will be very hard to debug.
 
 **Make things time out.**
 Allow network timeouts to be configured, and have a reasonable default so it doesn’t hang forever.
@@ -920,7 +922,7 @@ Subcommands, arguments, flags, configuration files, environment variables: these
 ([Semantic versioning](https://semver.org/) can only excuse so much change; if you’re putting out a major version bump every month, it’s meaningless.)
 
 Keep changes additive where you can.
-Rather than modify the behaviour of a flag in a backwards-incompatible way, maybe you can add a new flag—as long as it doesn’t bloat the interface too much.
+Rather than modify the behavior of a flag in a backwards-incompatible way, maybe you can add a new flag—as long as it doesn’t bloat the interface too much.
 (See also: [Prefer flags to args](#arguments-and-flags).)
 
 Eventually, you’ll find that you can’t avoid changing something.
@@ -1135,7 +1137,7 @@ Examples of projects that collect usage statistics:
 
 - Angular.js [collects detailed analytics using Google Analytics](https://angular.io/analytics), in the name of feature prioritization.
   You have to explicitly opt in.
-  You can change the tracking ID to point to your own GA property if you want to track Angular usage inside your organization.
+  You can change the tracking ID to point to your own Google Analytics property if you want to track Angular usage inside your organization.
 - Homebrew sends metrics to Google Analytics and has [a nice FAQ](https://docs.brew.sh/Analytics) detailing their practices.
 - Next.js [collects anonymized usage statistics](https://nextjs.org/telemetry) and is enabled by default.
 
