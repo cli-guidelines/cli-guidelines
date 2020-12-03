@@ -142,7 +142,7 @@ body {
 
 /* Don't show authors in table of contents */
 a[href='#authors'] {
-   display: none;
+   display: none !important;
 }
 
 #menu-button {
