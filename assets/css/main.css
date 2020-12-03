@@ -134,19 +134,6 @@ body {
    }
 }
 
-.github-button {
-   position: absolute;
-   left: calc(100% - 1.7em);
-   transform: rotate(-90deg);
-   transform-origin: bottom left;
-   top: 66%;
-}
-@media (min-width: 901px) {
-   .github-button {
-      top: calc(100vh - 5em);
-   }
-}
-
 #TableOfContents {
    text-align: left;
    top: 0;
@@ -503,7 +490,8 @@ pre code {
    #command-line-interface-guidelines section p,
    #command-line-interface-guidelines section ol,
    #command-line-interface-guidelines section ul,
-   #command-line-interface-guidelines section pre {
+   #command-line-interface-guidelines section pre,
+   #command-line-interface-guidelines section iframe {
       margin-left: auto;
       margin-right: auto;
       max-width: 78rem;
@@ -516,12 +504,19 @@ pre code {
    #command-line-interface-guidelines section p,
    #command-line-interface-guidelines section ol,
    #command-line-interface-guidelines section ul,
-   #command-line-interface-guidelines section pre {
+   #command-line-interface-guidelines section pre,
+   #command-line-interface-guidelines section iframe {
       max-width: 58rem;
       left: 0;
    }
 }
 
+
+#command-line-interface-guidelines section iframe {
+   display: block;
+   margin: 0 auto!important;
+   width: 100%!important;
+}
 
 
 body {
