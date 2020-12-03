@@ -1,1 +1,7 @@
 staticDir = ["fonts", "assets"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
