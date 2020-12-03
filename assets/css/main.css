@@ -254,6 +254,7 @@ main {
 }
 
 #command-line-interface-guidelines > h1 {
+   position: relative;
    height: 75vh;
    margin: 0 auto;
    display: flex;
@@ -263,6 +264,7 @@ main {
    padding: 0.5em 0 0;
    text-align: center;
    font-size: 15.5vw;
+   left: -0.025em;
    line-height: 1;
    letter-spacing: -0.02em;
    max-width: 6em;
@@ -291,15 +293,21 @@ main {
 }
 
 #command-line-interface-guidelines > h1 + p {
+   position: relative;
    height: 25vh;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
+   display: table-cell;
+   vertical-align: middle;
    margin: 0 auto;
    box-sizing: border-box;
    padding: 0 0 1.7em;
    text-align: center;
    max-width: 30.5em;
+   left: 50vw;
+   transform: translate(-57%, 0);
+}
+
+#command-line-interface-guidelines > h1 + p a {
+   display: inline;
 }
 
 .github-button {
