@@ -410,23 +410,24 @@ examine the history and state (see also: git help revisions)
 
 **Use formatting in your help text.**
 Bold headings make it much easier to scan.
-But, try to do it in a erminal-independent way so that your users aren't staring down a wall of escape characters.
+But, try to do it in a terminal-independent way so that your users aren't staring down a wall of escape characters.
 
 <pre>
-<b>$ heroku apps --help</b>
+<code>
+<strong>$ heroku apps --help</strong>
 list your apps
 
-<b>USAGE</b>
+<strong>USAGE</strong>
   $ heroku apps
 
-<b>OPTIONS</b>
+<strong>OPTIONS</strong>
   -A, --all          include apps in all teams
   -p, --personal     list apps in personal account when a default team is set
   -s, --space=space  filter by space
   -t, --team=team    team to use
   --json             output in json format
 
-<b>EXAMPLES</b>
+<strong>EXAMPLES</strong>
   $ heroku apps
   === My Apps
   example
@@ -435,7 +436,7 @@ list your apps
   === Collaborated Apps
   theirapp   other@owner.name
 
-<b>COMMANDS</b>
+<strong>COMMANDS</strong>
   apps:create     creates a new app
   apps:destroy    permanently destroy an app
   apps:errors     view app errors
@@ -449,6 +450,7 @@ list your apps
   apps:stacks     show the list of available stacks
   apps:transfer   transfer applications to another user or team
   apps:unlock     unlock an app so any team member can join
+</code>
 </pre>
 
 Note: When `heroku apps --help` is piped through a pager, the command emits no escape characters.
