@@ -410,9 +410,9 @@ examine the history and state (see also: git help revisions)
 
 **Use formatting in your help text.**
 Bold headings make it much easier to scan.
-But, try to do it in a erminal-independent way so that your users aren't staring down a wall of escape characters.
+But, try to do it in a terminal-independent way so that your users aren't staring down a wall of escape characters.
 
-<pre>
+<code>
 <b>$ heroku apps --help</b>
 list your apps
 
@@ -449,7 +449,7 @@ list your apps
   apps:stacks     show the list of available stacks
   apps:transfer   transfer applications to another user or team
   apps:unlock     unlock an app so any team member can join
-</pre>
+</code>
 
 Note: When `heroku apps --help` is piped through a pager, the command emits no escape characters.
 
