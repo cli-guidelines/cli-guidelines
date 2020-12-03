@@ -414,20 +414,20 @@ But, try to do it in a terminal-independent way so that your users aren't starin
 
 <pre>
 <code>
-<b>$ heroku apps --help</b>
+<strong>$ heroku apps --help</strong>
 list your apps
 
-<b>USAGE</b>
+<strong>USAGE</strong>
   $ heroku apps
 
-<b>OPTIONS</b>
+<strong>OPTIONS</strong>
   -A, --all          include apps in all teams
   -p, --personal     list apps in personal account when a default team is set
   -s, --space=space  filter by space
   -t, --team=team    team to use
   --json             output in json format
 
-<b>EXAMPLES</b>
+<strong>EXAMPLES</strong>
   $ heroku apps
   === My Apps
   example
@@ -436,7 +436,7 @@ list your apps
   === Collaborated Apps
   theirapp   other@owner.name
 
-<b>COMMANDS</b>
+<strong>COMMANDS</strong>
   apps:create     creates a new app
   apps:destroy    permanently destroy an app
   apps:errors     view app errors
