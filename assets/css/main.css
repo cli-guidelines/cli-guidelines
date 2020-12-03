@@ -2,37 +2,37 @@
    font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 400; 
-   src: url(/iAWriterDuospace-Regular.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Regular.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: italic; 
    font-weight: 400; 
-   src: url(/iAWriterDuospace-Italic.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Italic.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 600; 
-   src: url(/iAWriterDuospace-Bold.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Bold.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: italic; 
    font-weight: 600; 
-   src: url(/iAWriterDuospace-BoldItalic.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/iAWriterDuospace-BoldItalic.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG'; 
    font-style: normal; 
    font-weight: 800; 
-   src: url(/EditorialNew-Regular.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/EditorialNew-Regular.woff2) format('woff2');
 }
 @font-face {
    font-family: 'CLIG-PRE'; 
    font-style: normal; 
    font-weight: 400; 
-   src: url(/iAWriterMonoS-Regular.woff2) format('woff2');
+   src: url(https://fonts.clig.dev/iAWriterMonoS-Regular.woff2) format('woff2');
 }
 
 * {
