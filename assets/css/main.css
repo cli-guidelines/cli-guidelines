@@ -74,7 +74,12 @@ body {
       font-size: 2.5rem;
    }
 }
-@media (min-width: 750px) and (max-width: 999px) and (orientation: landscape) {
+@media (max-width: 750px) and (orientation: landscape) {
+   body {
+      font-size: 2.4rem;
+   }
+}
+@media (min-width: 751px) and (max-width: 999px) and (orientation: landscape) {
    body {
       font-size: 2.1rem;
    }
@@ -263,7 +268,7 @@ main {
 
 #command-line-interface-guidelines > h1 {
    height: 75vh;
-   margin: 0;
+   margin: 0 auto;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -273,8 +278,13 @@ main {
    font-size: 15.5vw;
    line-height: 1;
    letter-spacing: -0.02em;
+   max-width: 6em;
 }
-
+@media (max-width: 750px) and (orientation: landscape) {
+   #command-line-interface-guidelines > h1 {
+      font-size: 10vw;
+   }
+}
 @media (min-width: 750px) {
    #command-line-interface-guidelines > h1 {
       font-size: 16.5vw;
