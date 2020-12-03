@@ -129,6 +129,19 @@ body {
    }
 }
 
+.github-button {
+   position: absolute;
+   left: calc(100% - 1.7em);
+   transform: rotate(-90deg);
+   transform-origin: bottom left;
+   top: 66%;
+}
+@media (min-width: 901px) {
+   .github-button {
+      top: calc(100vh - 5em);
+   }
+}
+
 #TableOfContents {
    text-align: left;
    top: 0;
