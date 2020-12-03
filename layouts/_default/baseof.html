@@ -19,6 +19,16 @@
         <meta name="twitter:image" content="https://clig.dev/CLIG-social-card.jpg" />
         <meta property="og:image"  content="https://clig.dev/CLIG-social-card.jpg" />
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLXNEPQY85"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DLXNEPQY85');
+        </script>
+
         {{ $css := resources.Get "css/main.css" | resources.ToCSS }}
         <link rel="stylesheet" href="{{ $css.Permalink }}">
     </head>
