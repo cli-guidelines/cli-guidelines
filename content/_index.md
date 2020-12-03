@@ -10,7 +10,7 @@ Engineer at Squarespace, co-creator of Docker Compose. \
 [@aanandprasad](https://twitter.com/aanandprasad)
 
 **Ben Firshman** \
-Building [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
+Co-creator [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
 [@bfirsh](https://twitter.com/bfirsh)
 
 **Carl Tashian** \
