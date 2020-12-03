@@ -279,12 +279,12 @@ main {
 }
 @media (min-width: 1000px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 16vw;
+      font-size: 19vh;
    }
 }
 @media (min-width: 1400px) {
    #command-line-interface-guidelines > h1 {
-      font-size: 180px;
+      font-size: 20vh;
       max-width: 6em;
       margin: 0 auto;
    }
