@@ -4,6 +4,8 @@ An open-source guide to help you write better command-line programs, taking trad
 
 This is the source code for the guide. To read it, go to [clig.dev](https://clig.dev/).
 
+[Join us on Discord](https://discord.gg/EbAW5rUCkE) if you want to discuss the guide, or just chat about CLI design.
+
 ## Contributing
 
 The content of the guide lives in a single Markdown file, [content/_index.md](content/_index.md).

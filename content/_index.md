@@ -24,6 +24,8 @@ Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for
 
 <iframe class="github-button" src="https://ghbtns.com/github-btn.html?user=cli-guidelines&repo=cli-guidelines&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 
+[Join us on Discord](https://discord.gg/EbAW5rUCkE) if you want to discuss the guide or CLI design.
+
 
 ## Foreword {#foreword}
 
