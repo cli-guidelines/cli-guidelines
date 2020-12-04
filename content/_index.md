@@ -324,7 +324,7 @@ Example:
 For a listing of options, use jq --help.
 ```
 
-**Show full help when -h and --help is passed.**
+**Show full help when `-h` and `--help` is passed.**
 All of these should show help:
 
 ```
