@@ -1066,7 +1066,7 @@ Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepu
 - `EDITOR`, if you need to prompt the user to edit a file or input more than a single line.
 - `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`, if you’re going to perform network operations.
   (The HTTP library you’re using might already check for these.)
-- `SHELL`, if you’re going to invoke external commands.
+- `SHELL`, if you need to give the user their preferred shell. For scripts you wrote use /bin/sh or a more specific shell.
 - `TERM`, `TERMINFO` and `TERMCAP`, if you’re going to use terminal-specific escape sequences.
 - `TMPDIR`, if you’re going to create temporary files.
 - `HOME`, for locating configuration files.
