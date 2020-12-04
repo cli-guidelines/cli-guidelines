@@ -743,6 +743,7 @@ Here's a list of commonly used options:
   This is particularly useful when displaying output for humans that you might want to hide when running in a script.
 - `-u`, `--user`: User.
   For example, `ps`, `ssh`.
+- `--version`: Version.
 - `-v`: This can often mean either verbose or version.
   You might want to use `-d` for verbose and this for version, or for nothing to avoid confusion.
 
