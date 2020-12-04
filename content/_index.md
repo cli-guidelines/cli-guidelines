@@ -1032,6 +1032,7 @@ If you have to append or modify to a system-wide config file, use a dated commen
 **Apply configuration parameters in order of precedence.**
 Here is the precedence for config parameters, from highest to lowest:
 
+- Flags
 - The running shell’s environment variables
 - Project-level configuration (eg. `.env`)
 - User-level configuration
