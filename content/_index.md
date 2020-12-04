@@ -20,7 +20,7 @@ Developer Advocate at [Smallstep](https://smallstep.com/), first engineer at Zip
 Technical Writer at Squarespace, O’Reilly contributor.\
 [evaparish.com](https://evaparish.com/) [@evpari](https://twitter.com/evpari)
 
-Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for early contributions, and Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Jacob Maine, James Coglan, and Steve Klabnik for reviewing drafts.
+Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for early contributions, and Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Dj Walker-Morgan, Jacob Maine, James Coglan, Michael Dwan, and Steve Klabnik for reviewing drafts.
 
 <iframe class="github-button" src="https://ghbtns.com/github-btn.html?user=cli-guidelines&repo=cli-guidelines&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 
