@@ -58,7 +58,7 @@ There is creative value in its stability.
 
 So, while we still have it, we should try to maximize its utility and accessibility.
 
-A lot has changed about how we program computers since The Art of UNIX Programming—last published in 2003—laid out standards and best practices for how programs run from the shell should behave.
+A lot has changed about how we program computers since those early days.
 The command line of the past was _machine-first_: little more than a REPL on top of a scripting platform.
 But as general-purpose interpreted languages have flourished, the role of the shell script has shrunk.
 Today's command line is _human-first_: a text-based UI that affords access to all kinds of tools, systems and platforms.
@@ -206,8 +206,6 @@ It’s lots of little things: keeping the user informed about what’s happening
 
 As a general rule, robustness can also come from keeping it simple.
 Lots of special cases and complex code tend to make a program fragile.
-
-_Further reading: [The Art of UNIX Programming: Robustness](http://www.catb.org/~esr/writings/taoup/html/ch01s06.html#id2878145)_
 
 ### Empathy {#empathy}
 
@@ -747,8 +745,6 @@ Here's a list of commonly used options:
 - `-v`: This can often mean either verbose or version.
   You might want to use `-d` for verbose and this for version, or for nothing to avoid confusion.
 
-_Citation: [The Art of UNIX Programming, Eric S. Raymond](http://www.catb.org/esr/writings/taoup/html/ch10s05.html)._
-
 **Make the default the right thing for most users.**
 Making things configurable is good, but most users are not going to find the right flag and remember to use it all the time (or alias it).
 If it’s not the default, you’re making the experience worse for most of your users.
@@ -1160,7 +1156,6 @@ _Further reading: [Open Source Metrics](https://opensource.guide/metrics/)_
 ## Further reading
 
 - [The Unix Programming Environment](https://en.wikipedia.org/wiki/The_Unix_Programming_Environment), Brian W. Kernighan and Rob Pike
-- [The Art of Unix Programming](http://www.catb.org/esr/writings/taoup/html/), Eric Steven Raymond
 - [POSIX Utility Conventions](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html)
 - [Program Behavior for All Programs](https://www.gnu.org/prep/standards/html_node/Program-Behavior.html), GNU Coding Standards
 - [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46), Jeff Dickey
