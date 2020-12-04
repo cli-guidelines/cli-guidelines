@@ -87,7 +87,6 @@ Who is this guide for?
 - If you’d like to avoid obvious missteps of the variety that go against 40 years of CLI design conventions, this guide is for you.
 - If you want to delight people with your program’s good design and helpful help, this guide is definitely for you.
 - If you are creating a GUI program, this guide is not for you—though you may learn some GUI anti-patterns if you decide to read it anyway.
-  (Do GUI programmers even read, or do they just look at things?)
 - If you are designing an immersive, full-screen CLI port of Minecraft, this guide isn’t for you.
   (But we can’t wait to see it!)
 
