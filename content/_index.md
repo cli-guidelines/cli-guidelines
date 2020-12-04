@@ -162,7 +162,7 @@ The efficiency of using the command-line comes from remembering commands, but th
 Discoverable CLIs have comprehensive help texts, provide lots of examples, suggest what command to run next, suggest what to do when there is an error.
 There are lots of ideas that can be stolen from GUIs to make CLIs easier to learn and use, even for power users.
 
-Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines
+_Citation: The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines_
 
 ### Conversation as the&nbsp;norm {#conversation-as-the-norm}
 
