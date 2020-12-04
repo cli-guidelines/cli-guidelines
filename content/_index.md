@@ -670,6 +670,11 @@ If your program produces multiple errors of the same type, consider grouping the
 Put the most important information at the end of the output.
 The eye will be drawn to red text, so use it intentionally and sparingly.
 
+**Expected errors shouldn't reveal your program's internals.**
+If what went wrong was “the user typed a bad option” or “a file had the wrong format” or “we couldn't connect to a server”, the error should not contain a lengthy traceback of your program's code.
+After all, fixing the error doesn't involve changing your program's code.
+Details about how your program is written should be reserved for errors that indicate bugs in your program itself.
+
 **If there is an unexpected or unexplainable error, provide debug and traceback information, and instructions on how to submit a bug.**
 That said, don’t forget about the signal-to-noise ratio: you don’t want to overwhelm the user with information they don’t understand.
 Consider writing the debug log to a file instead of printing it to the terminal.
