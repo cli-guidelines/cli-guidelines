@@ -489,7 +489,7 @@ pre {
 
 pre code {
    display: block;
-   overflow-x: scroll;
+   overflow-x: auto;
    padding: 3em 3rem;
    border-radius: 1px 1px 5px 5px;
 }
