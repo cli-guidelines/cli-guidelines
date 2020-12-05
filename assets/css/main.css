@@ -498,6 +498,11 @@ pre code {
    overflow-x: auto;
    padding: 3em 3rem;
    border-radius: 1px 1px 5px 5px;
+   font-weight: 400;
+}
+
+pre code strong {
+   font-weight: 600;
 }
 
 @media (min-width: 750px) {
