@@ -810,9 +810,11 @@ It’s easy to misuse.
 Consider allowing secrets only via files, e.g. with a `--password-file` argument.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
-(One could read a password file in Bash by using `--password $(< password.txt)`.
+(It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
 Unfortunately, not every context in which a command is run will have access to magical shell substitutions.
-For example, `systemd` service definitions, `exec` system calls, and some `Dockerfile` command forms do not support the substitutions available in most shells.)
+For example, `systemd` service definitions, `exec` system calls, and some `Dockerfile` command forms do not support the substitutions available in most shells.
+What’s more, this approach has the same security issue of leaking the file’s contents into places like the output of `ps`.
+It’s best avoided.)
 
 ### Interactivity {#interactivity}
 
