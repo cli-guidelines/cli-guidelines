@@ -153,7 +153,7 @@ When it comes to making functionality discoverable, GUIs have the upper hand.
 Everything you can do is laid out in front of you on the screen, so you can find what you need without having to learn anything, and perhaps even discover things you didn’t know were possible.
 
 It is assumed that command-line interfaces are the opposite of this—that you have to remember how to do everything.
-The original [Macintosh Human Interface Guidelines](https://www.goodreads.com/book/show/1087110.Macintosh_Human_Interface_Guidelines), published in 1992, recommend “See-and-point (instead of remember-and-type),” as if you could only choose one or the other.
+The original [Macintosh Human Interface Guidelines](https://archive.org/details/applehumaninterf00appl), published in 1987, recommend “See-and-point (instead of remember-and-type),” as if you could only choose one or the other.
 
 These things needn’t be mutually exclusive.
 The efficiency of using the command-line comes from remembering commands, but there’s no reason the commands can’t help you learn and remember.
