@@ -648,6 +648,8 @@ You shouldn’t use a pager if `stdin` or `stdout` is not an interactive termina
 A good sensible set of options to use for `less` is `less -FIRX`.
 This does not page if the content fills one screen, ignores case when you search, enables color and formatting, and leaves the contents on the screen when `less` quits.
 
+Use user-configured pager if `PAGER` environment variable is set (see [Environment variables](#environment-variables)). Don't try to pass any options to the user-configured pager, split it as a shell command instead.
+
 There might be libraries in your language that are more robust than piping to `less`.
 For example, [pypager](https://github.com/prompt-toolkit/pypager) in Python.
 
