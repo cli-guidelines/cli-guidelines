@@ -1,0 +1,153 @@
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: normal; 
+   font-weight: 400; 
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Regular.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: italic; 
+   font-weight: 400; 
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Italic.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: normal; 
+   font-weight: 600; 
+   src: url(https://fonts.clig.dev/iAWriterDuospace-Bold.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: italic; 
+   font-weight: 600; 
+   src: url(https://fonts.clig.dev/iAWriterDuospace-BoldItalic.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG'; 
+   font-style: normal; 
+   font-weight: 800; 
+   src: url(https://fonts.clig.dev/EditorialNew-Regular.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG-PRE'; 
+   font-style: normal; 
+   font-weight: 400; 
+   src: url(https://fonts.clig.dev/iAWriterMonoS-Regular.woff2) format('woff2');
+}
+@font-face {
+   font-family: 'CLIG-PRE'; 
+   font-style: normal; 
+   font-weight: 600; 
+   src: url(https://fonts.clig.dev/iAWriterMonoS-Bold.woff2) format('woff2');
+}
+
+* {
+   font-family: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+   line-height: inherit;
+   letter-spacing: inherit;
+   vertical-align: baseline;
+    
+   margin: 0;
+   padding: 0;
+    
+   color: inherit;
+   text-decoration: none;
+   text-underline-offset: 0.3em;
+   text-decoration-thickness: 1px;
+}
+
+html {
+   font-family: 'CLIG';
+   font-weight: 400;
+   text-align: left;
+   color: black;
+}
+
+body {
+   font-size: 9pt;
+   line-height: 1.4;
+   -webkit-print-color-adjust: exact !important;
+}
+
+b, strong {
+   font-weight: 600;
+}
+
+i, em {
+  font-style: italic; 
+}
+
+code {
+   font-family: 'CLIG-Pre';
+}
+
+#menu-button {
+   display: none;
+}
+
+#TableOfContents {
+   display: none;
+}
+
+section section h2,
+section section h3,
+section section ol,
+section section ul,
+section section p {
+   margin: calc(1.4em * 0.5) auto;
+   max-width: 35rem;
+}
+
+h1 {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 auto;
+   max-width: 6em;
+   min-height: 66vh;
+   text-align: center;
+   font-size: 80pt;
+   line-height: 1;
+   font-weight: 800;
+}
+
+h1 + p {
+   display: block;
+   min-height: 0vh;
+   text-align: center;
+   max-width: 30.5em;
+   margin: 0 auto;
+}
+
+h2 {
+   page-break-before: always;
+   font-weight: 800;
+   font-size: 3em;
+}
+
+h3 {
+   font-weight: 800;
+   font-size: 1.5em;
+   margin-top: calc(1.4em * 1.5)!important;
+}
+
+code {
+   color: white;
+   background: black;   
+   padding: 0.1em 0.25em;
+}
+
+pre {
+   border: 1pt solid;
+   border-radius: 4pt;
+   padding: 14pt 1pt 1pt;
+   margin: 14pt;
+}
+
+pre code {
+   display: block;
+   padding: 1.4em;
+   border-radius: 3pt;
+}
