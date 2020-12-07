@@ -721,10 +721,14 @@ Here's a list of commonly used options:
 
 - `-a`, `--all`: All.
   For example, `ps`, `fetchmail`.
+- `--color={never,auto,always}`: Set coloring policy. `auto` means “show colors if writing to a TTY”.
+  For example, `ls`, `grep`
 - `-d`, `--debug`: Show debugging output.
 - `-f`, `--force`: Force.
   For example, `rm -f` will force the removal of files, even if it thinks it does not have permission to do it.
   This is also useful for commands which are doing something destructive that usually require user confirmation, but you want to force it to do that destructive action in a script.
+- `-j`, `--jobs`: Set the number of parallel jobs/threads.
+  For example, `make`, `git clone`, `ripgrep`
 - `--json`: Display JSON output.
   See the [output](#output) section.
 - `-h`, `--help`: Help.
