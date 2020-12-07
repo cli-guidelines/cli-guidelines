@@ -102,7 +102,7 @@ body {
 }
 @media (min-width: 1600px) {
    body {
-      font-size: 1.2rem;
+      font-size: 20px;
    }
 }
 
@@ -285,12 +285,12 @@ main {
       font-size: 16.5vw;
    }
 }
-@media (min-width: 1000px) {
+@media (min-width: 120vh) {
    #command-line-interface-guidelines > h1 {
       font-size: 19vh;
    }
 }
-@media (min-width: 1400px) {
+@media (min-width: 120vh) {
    #command-line-interface-guidelines > h1 {
       font-size: 20vh;
       max-width: 6em;
@@ -525,7 +525,7 @@ pre code strong {
    #command-line-interface-guidelines section ul,
    #command-line-interface-guidelines section pre,
    #command-line-interface-guidelines section iframe {
-      max-width: 58rem;
+      max-width: 50em;
       left: 0;
    }
 }
