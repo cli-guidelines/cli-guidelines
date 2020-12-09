@@ -530,7 +530,7 @@ pre code strong {
    #command-line-interface-guidelines section ul,
    #command-line-interface-guidelines section pre,
    #command-line-interface-guidelines section iframe {
-      max-width: 50em;
+      max-width: 58rem;
       left: 0;
    }
 }
