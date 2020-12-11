@@ -1,9 +1,0 @@
-# Production context:
-# All deploys from the main repository branch
-# will inherit these settings.
-[context.production]
-  command = "hugo"
-  publish = "public"
-
-  [context.production.environment]
-    HUGO_VERSION = "0.76.5"
