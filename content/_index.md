@@ -263,6 +263,7 @@ Here are some that we like:
 * Node: [oclif](https://oclif.io/)
 * Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
+* PHP: [console](https://github.com/symfony/console)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
