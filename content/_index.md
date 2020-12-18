@@ -260,6 +260,7 @@ They will normally handle arguments, flag parsing, help text, and even spelling 
 
 Here are some that we like:
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
+* Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
 * Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
