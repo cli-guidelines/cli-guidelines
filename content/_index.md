@@ -263,6 +263,7 @@ Here are some that we like:
 * Node: [oclif](https://oclif.io/)
 * Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
+* Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * PHP: [console](https://github.com/symfony/console)
 
 **Return zero exit code on success, non-zero on failure.**
