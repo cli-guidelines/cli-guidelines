@@ -897,6 +897,20 @@ For example, `docker pull`’s multiple progress bars offer crucial insight into
 
 <!-- (TK docker pull animation) -->
 
+```
+$ docker image pull ruby
+Using default tag: latest
+latest: Pulling from library/ruby
+6c33745f49b4: Pull complete 
+ef072fc32a84: Extracting [================================================>  ]  7.569MB/7.812MB
+c0afb8e68e0b: Download complete 
+d599c07d28e6: Download complete 
+f2ecc74db11a: Downloading [=======================>                           ]  89.11MB/192.3MB
+3568445c8bf2: Download complete 
+b0efebc74f25: Downloading [===========================================>       ]  19.88MB/22.88MB
+9cb1ba6838a0: Download complete 
+```
+
 One thing to be aware of: hiding logs behind progress bars when things go _well_ makes it much easier for the user to understand what’s going on, but if there is an error, make sure you print out the logs.
 Otherwise, it will be very hard to debug.
 
