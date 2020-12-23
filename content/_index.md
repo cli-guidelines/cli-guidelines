@@ -895,8 +895,6 @@ Libraries like [tqdm](https://github.com/tqdm/tqdm) for Python and [schollz/prog
 The upside is that it can be a huge usability gain.
 For example, `docker pull`’s multiple progress bars offer crucial insight into what’s going on.
 
-<!-- (TK docker pull animation) -->
-
 ```
 $ docker image pull ruby
 Using default tag: latest
