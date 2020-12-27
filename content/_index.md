@@ -839,6 +839,36 @@ If your program hangs on network I/O etc, always make Ctrl-C still work.
 If it’s a wrapper around program execution where Ctrl-C can’t quit (SSH, tmux, telnet, etc), make it clear how to do that.
 For example, SSH allows escape sequences with the `~` escape character.
 
+### Interactive History
+
+While we are on the subject of _Interactivity_ ...
+
+We repeat ourselves. _Often._
+
+We repeat ourselves for many reasons.
+  - Rerun a command with different parameters;
+  - Rerun because there was an error;
+  - Rerun something you ran yesterday, or a month ago;
+  - Rerun someone else's command (that you found reading /root/.bash_history for example);
+  - Rerun for iterative refinement of plots or analysis with R or gnuplot;
+  - Rerun because we _just need to rerun it!_
+
+Obviously not all programs lend themselves to being interactive. But, if they are, the benefits of being able to recall and edit history often makes sense. Bash or other command shells are easy examples, but there are programs like mysql, gnuplot, R, python, bc, less, tclsh and many others.
+
+The C Shell was my first introduction to command line editing of history and became my shell of choice for a little while, replacing the then familiar Bourne Shell. While you could edit and reinvoke commands from your history, it was cumbersome and difficult to learn well. You couldn't actually see what you were editing, making it too easy make mistakes that could be costly.
+
+Then I tripped over the Korn Shell and fell in love. I could take my hard won knowledge of the vi editor and apply them to the command line without having to teach my fingers anything new. It was somewhere around the time I first started using Linux that I was introduced to the Bash shell which was even better!
+
+Chet Ramey maintains both bash and the readline library[1][2] which was originally modelled after the Korn shell. It was better in a number of important aspects. The most important one was that you could use the readline library for other projects other than the bash shell! Today there are readline bindings for many languages. You can even build your own bash scripts[3] using readline and maintaining history for the user!
+
+The main benefit? _Users will thank you!_ You will have built-in support for people who have invested time teaching their fingers vi and/or emacs, without needing to build it yourself! Users will find ways to reuse
+commands from the past, correct mistakes, do iterative refinement etc.
+
+Check out some of the following resources for (re-)building your next awesome CLI app with built-in history editing!
+  1. [The GNU Readline Library](https://tiswww.case.edu/php/chet/readline/rltop.html)
+  2. [Things You Didn't Know About GNU Readline](https://twobithistory.org/2019/08/22/readline.html)
+  3. [Interactive bash scripts](https://billduncan.org/interactive-bash-scripts/)
+
 ### Subcommands
 
 If you’ve got a tool that’s sufficiently complex, you can reduce its complexity by making a set of subcommands.
@@ -895,19 +925,7 @@ Libraries like [tqdm](https://github.com/tqdm/tqdm) for Python and [schollz/prog
 The upside is that it can be a huge usability gain.
 For example, `docker pull`’s multiple progress bars offer crucial insight into what’s going on.
 
-```
-$ docker image pull ruby
-Using default tag: latest
-latest: Pulling from library/ruby
-6c33745f49b4: Pull complete 
-ef072fc32a84: Extracting [================================================>  ]  7.569MB/7.812MB
-c0afb8e68e0b: Download complete 
-d599c07d28e6: Download complete 
-f2ecc74db11a: Downloading [=======================>                           ]  89.11MB/192.3MB
-3568445c8bf2: Download complete 
-b0efebc74f25: Downloading [===========================================>       ]  19.88MB/22.88MB
-9cb1ba6838a0: Download complete 
-```
+<!-- (TK docker pull animation) -->
 
 One thing to be aware of: hiding logs behind progress bars when things go _well_ makes it much easier for the user to understand what’s going on, but if there is an error, make sure you print out the logs.
 Otherwise, it will be very hard to debug.
