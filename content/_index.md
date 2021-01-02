@@ -868,6 +868,11 @@ Check out some of the following resources for (re-)building your next awesome CL
   1. [The GNU Readline Library](https://tiswww.case.edu/php/chet/readline/rltop.html)
   2. [Things You Didn't Know About GNU Readline](https://twobithistory.org/2019/08/22/readline.html)
   3. [Interactive bash scripts](https://billduncan.org/interactive-bash-scripts/)
+  4. [GNU readline interface for Python](https://docs.python.org/3/library/readline.html)
+  5. [Go Lang readline](https://godoc.org/github.com/chzyer/readline)
+  6. [Go Lang readline alternative](https://github.com/bobappleyard/readline)
+  7. [Rust Rustyline Library](https://github.com/kkawakam/rustyline)
+  8. [Perl readline Library](https://metacpan.org/pod/Term::ReadLine::Perl5)
 
 ### Subcommands
 
