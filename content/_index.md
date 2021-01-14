@@ -1076,7 +1076,7 @@ Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepu
 
 **Check general-purpose environment variables for configuration values when possible:**
 
-- `NO_COLOR`, to disable color (see [Output](#output)).
+- `NO_COLOR`, to disable color (see [Output](#output)) or `FORCE_COLOR` to enable it and ignore the detection logic.
 - `DEBUG`, to enable more verbose output.
 - `EDITOR`, if you need to prompt the user to edit a file or input more than a single line.
 - `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`, if you’re going to perform network operations.
