@@ -44,7 +44,7 @@ As computing pioneer Alan Kay said in [a 2017 interview](https://www.fastcompany
 
 Kay’s “real guitar” isn’t the CLI—not exactly.
 He was talking about ways of programming computers that offer the power of the CLI and that transcend writing software in text files.
-There is a belief among Kay’s disciples that we need to break out of a text-based local maxima that we’ve been living in for decades.
+There is a belief among Kay’s disciples that we need to break out of a text-based local maximum that we’ve been living in for decades.
 
 It’s exciting to imagine a future where we program computers very differently.
 Even today, spreadsheets are by far the most popular programming language, and the no-code movement is taking off quickly as it attempts to replace some of the intense demand for talented programmers.
