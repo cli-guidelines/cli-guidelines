@@ -806,17 +806,16 @@ unknown flag: --foo
 This can be very confusing for the user—especially given that one of the most common things users do when trying to get a command to work is to hit the up arrow to get the last invocation, stick another option on the end, and run it again.
 If possible, try to make both forms equivalent, although you might run up against the limitations of your argument parser.
 
-**Allow sensitive argument values to be passed in via files.**
-Let’s say your command takes a secret via a `--password` argument.
-A raw `--password` argument will leak the secret into `ps` output and potentially shell history.
-It’s easy to misuse.
-Consider allowing secrets only via files, e.g. with a `--password-file` argument.
+**Do not accept secrets via flags.**
+When a command accepts a secret, eg. via a `--password` argument,
+the argument value will leak the secret into `ps` output and potentially shell history.
+And, this sort of flag encourages the use of insecure environment variables for secrets.
+
+Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `STDIN`.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
-Unfortunately, not every context in which a command is run will have access to magical shell substitutions.
-For example, `systemd` service definitions, `exec` system calls, and some `Dockerfile` command forms do not support the substitutions available in most shells.
-What’s more, this approach has the same security issue of leaking the file’s contents into places like the output of `ps`.
+This approach has the same security issue of leaking the file’s contents into the output of `ps`.
 It’s best avoided.)
 
 ### Interactivity {#interactivity}
@@ -1074,15 +1073,6 @@ While multi-line values are possible, they create usability issues with the `env
 **Avoid commandeering widely used names.**
 Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap08.html).
 
-**Do not accept secrets via environment variables.**
-While environment variables may be convenient for secrets, they have proven too prone to leakage:
-- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state
-- Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
-- Environment variables in systemd units are globally readable via `systemctl show`
-- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
-
-Secrets should only be accepted via credential files, pipes, `AF_UNIX` sockets, secret management services, or another IPC mechanism.
-
 **Check general-purpose environment variables for configuration values when possible:**
 
 - `NO_COLOR`, to disable color (see [Output](#output))
@@ -1114,6 +1104,15 @@ Many languages have libraries for reading `.env` files ([Rust](https://crates.io
 - It often contains sensitive credentials & key material that would be better stored more securely
 
 If it seems like these limitations will hamper usability or security, then a dedicated config file might be more appropriate.
+
+**Do not accept secrets via environment variables.**
+While environment variables may be convenient for secrets, they have proven too prone to leakage:
+- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state
+- Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
+- Environment variables in systemd units are globally readable via `systemctl show`
+- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
+
+Secrets should only be accepted via credential files, pipes, `AF_UNIX` sockets, secret management services, or another IPC mechanism.
 
 ### Naming {#naming}
 
