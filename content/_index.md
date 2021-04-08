@@ -806,7 +806,7 @@ unknown flag: --foo
 This can be very confusing for the user—especially given that one of the most common things users do when trying to get a command to work is to hit the up arrow to get the last invocation, stick another option on the end, and run it again.
 If possible, try to make both forms equivalent, although you might run up against the limitations of your argument parser.
 
-**Do not accept secrets via flags.**
+**Do not read secrets directly from flags.**
 When a command accepts a secret, eg. via a `--password` argument,
 the argument value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
@@ -1105,9 +1105,10 @@ Many languages have libraries for reading `.env` files ([Rust](https://crates.io
 
 If it seems like these limitations will hamper usability or security, then a dedicated config file might be more appropriate.
 
-**Do not accept secrets via environment variables.**
-While environment variables may be convenient for secrets, they have proven too prone to leakage:
-- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state
+**Do not read secrets from environment variables.**
+While environment variables may be convenient for storing secrets, they have proven too prone to leakage:
+- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
+  (cURL offers the `-H @filename` alternative for reading sensitive headers from a file.)
 - Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
 - Environment variables in systemd units are globally readable via `systemctl show`
 - Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
