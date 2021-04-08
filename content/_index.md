@@ -1107,11 +1107,11 @@ If it seems like these limitations will hamper usability or security, then a ded
 
 **Do not read secrets from environment variables.**
 While environment variables may be convenient for storing secrets, they have proven too prone to leakage:
+- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
 - Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
   (cURL offers the `-H @filename` alternative for reading sensitive headers from a file.)
 - Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
 - Environment variables in systemd units are globally readable via `systemctl show`
-- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
 
 Secrets should only be accepted via credential files, pipes, `AF_UNIX` sockets, secret management services, or another IPC mechanism.
 
