@@ -1076,10 +1076,10 @@ Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepu
 
 **Do not accept secrets via environment variables.**
 While environment variables may be convenient for secrets, they have proven too prone to leakage:
-* Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state
-* Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
-* Environment variables in systemd units are globally readable via `systemctl show`
-* Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
+- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state
+- Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
+- Environment variables in systemd units are globally readable via `systemctl show`
+- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
 
 Secrets should only be accepted via credential files, pipes, `AF_UNIX` sockets, secret management services, or another IPC mechanism.
 
