@@ -266,6 +266,7 @@ Here are some that we like:
 * Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
+* Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
