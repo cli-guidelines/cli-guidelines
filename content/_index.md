@@ -262,10 +262,11 @@ Here are some that we like:
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
+* PHP: [console](https://github.com/symfony/console)
 * Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
-* PHP: [console](https://github.com/symfony/console)
+* Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
