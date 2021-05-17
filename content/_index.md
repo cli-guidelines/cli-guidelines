@@ -367,17 +367,6 @@ It’s useful to have exhaustive, advanced examples, but you don’t want to mak
 
 For more complex use cases, e.g. when integrating with another tool, it might be appropriate to write a fully-fledged tutorial.
 
-**Don’t bother with man pages.**
-We believe that if you’re following these guidelines for help and documentation, you won’t need man pages.
-Not enough people use man pages, and they don’t work on Windows.
-If your CLI framework and package manager make it easy to output man pages, go for it, but otherwise your time is best spent improving web docs and built-in help text.
-
-_Citation: [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)._
-
-**If your help text is long, pipe it through a pager.**
-This is one useful thing that `man` does for you.
-See the advice in the “Output” section below.
-
 **Display the most common flags and commands at the start of the help text.**
 It’s fine to have lots of flags, but if you’ve got some really common ones, display them first.
 For example, the Git command displays the commands for getting started and the most commonly used subcommands first:
@@ -485,6 +474,44 @@ _Further reading: [“Do What I Mean”](http://www.catb.org/~esr/jargon/html/D/
 **If your command is expecting to have something piped to it and `stdin` is an interactive terminal, display help immediately and quit.**
 This means it doesn’t just hang, like `cat`.
 Alternatively, you could print a log message to `stderr`.
+
+### Documentation {#documentation}
+
+The purpose of [help text](#help) is to give a brief, immediate sense of what your tool is, what options are available, and how to perform the most common tasks.
+Documentation, on the other hand, is where you go into full detail.
+It’s where people go to understand what your tool is for, what it _isn’t_ for, how it works and how to do everything they might need to do.
+
+**Provide web-based documentation.**
+People need to be able to search online for your tool’s documentation, and to link other people to specific parts.
+The web is the most inclusive documentation format available.
+
+**Provide terminal-based documentation.**
+Documentation in the terminal has several nice properties: it’s fast to access, it stays in sync with the specific installed version of the tool, and it works without an internet connection.
+
+**Consider providing man pages.**
+[man pages](https://en.wikipedia.org/wiki/Man_page), Unix’s original system of documentation, are still in use today, and many users will reflexively check `man mycmd` as a first step when trying to learn about your tool.
+To make them easier to generate, you can use a tool like [ronn](http://rtomayko.github.io/ronn/ronn.1.html) (which can also generate your web docs).
+
+However, not everyone knows about `man`, and it doesn’t run on all platforms, so you should also make sure your terminal docs are accessible via your tool itself.
+For example, `git` and `npm` make their man pages accessible via the `help` subcommand, so `npm help ls` is equivalent to `man npm-ls`.
+
+```
+NPM-LS(1)                                                            NPM-LS(1)
+
+NAME
+       npm-ls - List installed packages
+
+SYNOPSIS
+         npm ls [[<@scope>/]<pkg> ...]
+
+         aliases: list, la, ll
+
+DESCRIPTION
+       This command will print to stdout all the versions of packages that are
+       installed, as well as their dependencies, in a tree-structure.
+
+       ...
+```
 
 ### Output {#output}
 
