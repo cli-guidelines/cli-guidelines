@@ -263,7 +263,7 @@ Here are some that we like:
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
 * PHP: [console](https://github.com/symfony/console)
-* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
+* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer), [Argparse](https://docs.python.org/3/library/argparse.html)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
