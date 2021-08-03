@@ -1093,7 +1093,7 @@ Environment variables may duplicate the functionality of flags or configuration 
 See [Configuration](#configuration) for a breakdown of common types of configuration and recommendations on when environment variables are most appropriate.
 
 **For maximum portability, environment variable names must only contain uppercase letters, numbers, and underscores (and mustn't start with a number).**
-Which means `O_O` and `OWO` are the only emoticons that are also valid environment variable names.
+Which means variables such as `O_O`, `OWO`, `D8`, `DX`, `XP` are the only emoticons that are also valid environment variable names, as per [Wikipedia's list of emoticons](https://en.wikipedia.org/wiki/List_of_emoticons).
 
 **Aim for single-line environment variable values.**
 While multi-line values are possible, they create usability issues with the `env` command.
