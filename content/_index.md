@@ -267,6 +267,7 @@ Here are some that we like:
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
+* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
