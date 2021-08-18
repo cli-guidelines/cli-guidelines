@@ -259,7 +259,7 @@ Either your language’s built-in one, or a good third-party one.
 They will normally handle arguments, flag parsing, help text, and even spelling suggestions in a sensible way.
 
 Here are some that we like:
-* Multi-platform: [docopt](http://docopt.org)\
+* Multi-platform: [docopt](http://docopt.org)
 * Bash: [argbash](https://argbash.io)
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
