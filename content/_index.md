@@ -44,7 +44,7 @@ As computing pioneer Alan Kay said in [a 2017 interview](https://www.fastcompany
 
 Kay’s “real guitar” isn’t the CLI—not exactly.
 He was talking about ways of programming computers that offer the power of the CLI and that transcend writing software in text files.
-There is a belief among Kay’s disciples that we need to break out of a text-based local maxima that we’ve been living in for decades.
+There is a belief among Kay’s disciples that we need to break out of a text-based local maximum that we’ve been living in for decades.
 
 It’s exciting to imagine a future where we program computers very differently.
 Even today, spreadsheets are by far the most popular programming language, and the no-code movement is taking off quickly as it attempts to replace some of the intense demand for talented programmers.
@@ -259,13 +259,16 @@ Either your language’s built-in one, or a good third-party one.
 They will normally handle arguments, flag parsing, help text, and even spelling suggestions in a sensible way.
 
 Here are some that we like:
+* Multi-platform: [docopt](http://docopt.org)
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
-* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
+* PHP: [console](https://github.com/symfony/console)
+* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer), [Argparse](https://docs.python.org/3/library/argparse.html)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
-* PHP: [console](https://github.com/symfony/console)
+* Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
+* bash: [argbash](https://argbash.io)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
@@ -365,17 +368,6 @@ You can tell a story with a series of examples, building your way toward complex
 It’s useful to have exhaustive, advanced examples, but you don’t want to make your help text really long.
 
 For more complex use cases, e.g. when integrating with another tool, it might be appropriate to write a fully-fledged tutorial.
-
-**Don’t bother with man pages.**
-We believe that if you’re following these guidelines for help and documentation, you won’t need man pages.
-Not enough people use man pages, and they don’t work on Windows.
-If your CLI framework and package manager make it easy to output man pages, go for it, but otherwise your time is best spent improving web docs and built-in help text.
-
-_Citation: [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)._
-
-**If your help text is long, pipe it through a pager.**
-This is one useful thing that `man` does for you.
-See the advice in the “Output” section below.
 
 **Display the most common flags and commands at the start of the help text.**
 It’s fine to have lots of flags, but if you’ve got some really common ones, display them first.
@@ -484,6 +476,44 @@ _Further reading: [“Do What I Mean”](http://www.catb.org/~esr/jargon/html/D/
 **If your command is expecting to have something piped to it and `stdin` is an interactive terminal, display help immediately and quit.**
 This means it doesn’t just hang, like `cat`.
 Alternatively, you could print a log message to `stderr`.
+
+### Documentation {#documentation}
+
+The purpose of [help text](#help) is to give a brief, immediate sense of what your tool is, what options are available, and how to perform the most common tasks.
+Documentation, on the other hand, is where you go into full detail.
+It’s where people go to understand what your tool is for, what it _isn’t_ for, how it works and how to do everything they might need to do.
+
+**Provide web-based documentation.**
+People need to be able to search online for your tool’s documentation, and to link other people to specific parts.
+The web is the most inclusive documentation format available.
+
+**Provide terminal-based documentation.**
+Documentation in the terminal has several nice properties: it’s fast to access, it stays in sync with the specific installed version of the tool, and it works without an internet connection.
+
+**Consider providing man pages.**
+[man pages](https://en.wikipedia.org/wiki/Man_page), Unix’s original system of documentation, are still in use today, and many users will reflexively check `man mycmd` as a first step when trying to learn about your tool.
+To make them easier to generate, you can use a tool like [ronn](http://rtomayko.github.io/ronn/ronn.1.html) (which can also generate your web docs).
+
+However, not everyone knows about `man`, and it doesn’t run on all platforms, so you should also make sure your terminal docs are accessible via your tool itself.
+For example, `git` and `npm` make their man pages accessible via the `help` subcommand, so `npm help ls` is equivalent to `man npm-ls`.
+
+```
+NPM-LS(1)                                                            NPM-LS(1)
+
+NAME
+       npm-ls - List installed packages
+
+SYNOPSIS
+         npm ls [[<@scope>/]<pkg> ...]
+
+         aliases: list, la, ll
+
+DESCRIPTION
+       This command will print to stdout all the versions of packages that are
+       installed, as well as their dependencies, in a tree-structure.
+
+       ...
+```
 
 ### Output {#output}
 
@@ -806,17 +836,16 @@ unknown flag: --foo
 This can be very confusing for the user—especially given that one of the most common things users do when trying to get a command to work is to hit the up arrow to get the last invocation, stick another option on the end, and run it again.
 If possible, try to make both forms equivalent, although you might run up against the limitations of your argument parser.
 
-**Allow sensitive argument values to be passed in via files.**
-Let’s say your command takes a secret via a `--password` argument.
-A raw `--password` argument will leak the secret into `ps` output and potentially shell history.
-It’s easy to misuse.
-Consider allowing secrets only via files, e.g. with a `--password-file` argument.
+**Do not read secrets directly from flags.**
+When a command accepts a secret, eg. via a `--password` argument,
+the argument value will leak the secret into `ps` output and potentially shell history.
+And, this sort of flag encourages the use of insecure environment variables for secrets.
+
+Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `STDIN`.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
-Unfortunately, not every context in which a command is run will have access to magical shell substitutions.
-For example, `systemd` service definitions, `exec` system calls, and some `Dockerfile` command forms do not support the substitutions available in most shells.
-What’s more, this approach has the same security issue of leaking the file’s contents into places like the output of `ps`.
+This approach has the same security issue of leaking the file’s contents into the output of `ps`.
 It’s best avoided.)
 
 ### Interactivity {#interactivity}
@@ -1076,21 +1105,22 @@ Here’s a [list of POSIX standard env vars](https://pubs.opengroup.org/onlinepu
 
 **Check general-purpose environment variables for configuration values when possible:**
 
-- `NO_COLOR`, to disable color (see [Output](#output)) or `FORCE_COLOR` to enable it and ignore the detection logic.
-- `DEBUG`, to enable more verbose output.
-- `EDITOR`, if you need to prompt the user to edit a file or input more than a single line.
-- `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`, if you’re going to perform network operations.
+- `NO_COLOR`, to disable color (see [Output](#output)) or `FORCE_COLOR` to enable it and ignore the detection logic
+- `DEBUG`, to enable more verbose output
+- `EDITOR`, if you need to prompt the user to edit a file or input more than a single line
+- `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`, if you’re going to perform network operations
   (The HTTP library you’re using might already check for these.)
-- `SHELL`, if you need to open up an interactive session of the user's preferred shell.
+- `SHELL`, if you need to open up an interactive session of the user's preferred shell
   (If you need to execute a shell script, use a specific interpreter like `/bin/sh`)
-- `TERM`, `TERMINFO` and `TERMCAP`, if you’re going to use terminal-specific escape sequences.
-- `TMPDIR`, if you’re going to create temporary files.
-- `HOME`, for locating configuration files.
-- `PAGER`, if you want to automatically page output.
-- `LINES` and `COLUMNS`, for output that’s dependent on screen size (e.g. tables).
+- `TERM`, `TERMINFO` and `TERMCAP`, if you’re going to use terminal-specific escape sequences
+- `TMPDIR`, if you’re going to create temporary files
+- `HOME`, for locating configuration files
+- `PAGER`, if you want to automatically page output
+- `LINES` and `COLUMNS`, for output that’s dependent on screen size (e.g. tables)
 
 **Read environment variables from `.env` where appropriate.**
-If a command defines environment variables that are unlikely to change as long as the user is working in a particular directory, then it should also read them from a local `.env` file so users can configure it differently for different projects without having to specify them every time.
+If a command defines environment variables that are unlikely to change as long as the user is working in a particular directory,
+then it should also read them from a local `.env` file so users can configure it differently for different projects without having to specify them every time.
 Many languages have libraries for reading `.env` files ([Rust](https://crates.io/crates/dotenv), [Node](https://www.npmjs.com/package/dotenv), [Ruby](https://github.com/bkeepers/dotenv)).
 
 **Don’t use `.env` as a substitute for a proper [configuration file](#configuration).**
@@ -1104,6 +1134,16 @@ Many languages have libraries for reading `.env` files ([Rust](https://crates.io
 - It often contains sensitive credentials & key material that would be better stored more securely
 
 If it seems like these limitations will hamper usability or security, then a dedicated config file might be more appropriate.
+
+**Do not read secrets from environment variables.**
+While environment variables may be convenient for storing secrets, they have proven too prone to leakage:
+- Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
+- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
+  (cURL offers the `-H @filename` alternative for reading sensitive headers from a file.)
+- Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
+- Environment variables in systemd units are globally readable via `systemctl show`
+
+Secrets should only be accepted via credential files, pipes, `AF_UNIX` sockets, secret management services, or another IPC mechanism.
 
 ### Naming {#naming}
 
