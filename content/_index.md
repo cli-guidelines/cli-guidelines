@@ -259,15 +259,17 @@ Either your language’s built-in one, or a good third-party one.
 They will normally handle arguments, flag parsing, help text, and even spelling suggestions in a sensible way.
 
 Here are some that we like:
+* Multi-platform: [docopt](http://docopt.org)
+* bash: [argbash](https://argbash.io)
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
+* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
 * PHP: [console](https://github.com/symfony/console)
-* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer), [Argparse](https://docs.python.org/3/library/argparse.html)
+* Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
-* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
