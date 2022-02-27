@@ -266,6 +266,7 @@ Here are some that we like:
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
 * Deno: [flags](https://deno.land/std/flags)
+* Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
 * PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
 * Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
@@ -783,7 +784,7 @@ Here's a list of commonly used options:
 Making things configurable is good, but most users are not going to find the right flag and remember to use it all the time (or alias it).
 If it’s not the default, you’re making the experience worse for most of your users.
 
-For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhFGT`.
+For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhF`.
 
 **Prompt for user input.**
 If a user doesn’t pass an argument or flag, prompt for it.
