@@ -783,7 +783,7 @@ Here's a list of commonly used options:
 Making things configurable is good, but most users are not going to find the right flag and remember to use it all the time (or alias it).
 If it’s not the default, you’re making the experience worse for most of your users.
 
-For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhFGT`.
+For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhF`.
 
 **Prompt for user input.**
 If a user doesn’t pass an argument or flag, prompt for it.
