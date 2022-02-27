@@ -265,6 +265,7 @@ Here are some that we like:
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
+* Deno: [flags](https://deno.land/std/flags)
 * Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
 * PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
 * Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
