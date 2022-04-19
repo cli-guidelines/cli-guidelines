@@ -844,7 +844,7 @@ When a command accepts a secret, eg. via a `--password` argument,
 the argument value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
 
-Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `STDIN`.
+Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `stdin`.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
