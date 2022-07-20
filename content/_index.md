@@ -947,7 +947,7 @@ Otherwise, it will be very hard to debug.
 **Make things time out.**
 Allow network timeouts to be configured, and have a reasonable default so it doesn’t hang forever.
 
-**Make it idempotent.**
+**Make it recoverable.**
 If the program fails for some transient reason (e.g. the internet connection went down), you should be able to hit `<up>` and `<enter>` and it should pick up from where it left off.
 
 **Make it crash-only.**
