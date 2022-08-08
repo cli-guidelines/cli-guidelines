@@ -259,11 +259,16 @@ Either your language’s built-in one, or a good third-party one.
 They will normally handle arguments, flag parsing, help text, and even spelling suggestions in a sensible way.
 
 Here are some that we like:
+* Multi-platform: [docopt](http://docopt.org)
+* Bash: [argbash](https://argbash.io)
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
+* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
-* PHP: [console](https://github.com/symfony/console)
-* Python: [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
+* Deno: [flags](https://deno.land/std/flags)
+* Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
+* PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
+* Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
@@ -366,17 +371,6 @@ You can tell a story with a series of examples, building your way toward complex
 It’s useful to have exhaustive, advanced examples, but you don’t want to make your help text really long.
 
 For more complex use cases, e.g. when integrating with another tool, it might be appropriate to write a fully-fledged tutorial.
-
-**Don’t bother with man pages.**
-We believe that if you’re following these guidelines for help and documentation, you won’t need man pages.
-Not enough people use man pages, and they don’t work on Windows.
-If your CLI framework and package manager make it easy to output man pages, go for it, but otherwise your time is best spent improving web docs and built-in help text.
-
-_Citation: [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)._
-
-**If your help text is long, pipe it through a pager.**
-This is one useful thing that `man` does for you.
-See the advice in the “Output” section below.
 
 **Display the most common flags and commands at the start of the help text.**
 It’s fine to have lots of flags, but if you’ve got some really common ones, display them first.
@@ -485,6 +479,44 @@ _Further reading: [“Do What I Mean”](http://www.catb.org/~esr/jargon/html/D/
 **If your command is expecting to have something piped to it and `stdin` is an interactive terminal, display help immediately and quit.**
 This means it doesn’t just hang, like `cat`.
 Alternatively, you could print a log message to `stderr`.
+
+### Documentation {#documentation}
+
+The purpose of [help text](#help) is to give a brief, immediate sense of what your tool is, what options are available, and how to perform the most common tasks.
+Documentation, on the other hand, is where you go into full detail.
+It’s where people go to understand what your tool is for, what it _isn’t_ for, how it works and how to do everything they might need to do.
+
+**Provide web-based documentation.**
+People need to be able to search online for your tool’s documentation, and to link other people to specific parts.
+The web is the most inclusive documentation format available.
+
+**Provide terminal-based documentation.**
+Documentation in the terminal has several nice properties: it’s fast to access, it stays in sync with the specific installed version of the tool, and it works without an internet connection.
+
+**Consider providing man pages.**
+[man pages](https://en.wikipedia.org/wiki/Man_page), Unix’s original system of documentation, are still in use today, and many users will reflexively check `man mycmd` as a first step when trying to learn about your tool.
+To make them easier to generate, you can use a tool like [ronn](http://rtomayko.github.io/ronn/ronn.1.html) (which can also generate your web docs).
+
+However, not everyone knows about `man`, and it doesn’t run on all platforms, so you should also make sure your terminal docs are accessible via your tool itself.
+For example, `git` and `npm` make their man pages accessible via the `help` subcommand, so `npm help ls` is equivalent to `man npm-ls`.
+
+```
+NPM-LS(1)                                                            NPM-LS(1)
+
+NAME
+       npm-ls - List installed packages
+
+SYNOPSIS
+         npm ls [[<@scope>/]<pkg> ...]
+
+         aliases: list, la, ll
+
+DESCRIPTION
+       This command will print to stdout all the versions of packages that are
+       installed, as well as their dependencies, in a tree-structure.
+
+       ...
+```
 
 ### Output {#output}
 
@@ -752,7 +784,7 @@ Here's a list of commonly used options:
 Making things configurable is good, but most users are not going to find the right flag and remember to use it all the time (or alias it).
 If it’s not the default, you’re making the experience worse for most of your users.
 
-For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhFGT`.
+For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhF`.
 
 **Prompt for user input.**
 If a user doesn’t pass an argument or flag, prompt for it.
@@ -812,7 +844,7 @@ When a command accepts a secret, eg. via a `--password` argument,
 the argument value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
 
-Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `STDIN`.
+Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `stdin`.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
@@ -915,7 +947,7 @@ Otherwise, it will be very hard to debug.
 **Make things time out.**
 Allow network timeouts to be configured, and have a reasonable default so it doesn’t hang forever.
 
-**Make it idempotent.**
+**Make it recoverable.**
 If the program fails for some transient reason (e.g. the internet connection went down), you should be able to hit `<up>` and `<enter>` and it should pick up from where it left off.
 
 **Make it crash-only.**
@@ -1109,7 +1141,7 @@ If it seems like these limitations will hamper usability or security, then a ded
 **Do not read secrets from environment variables.**
 While environment variables may be convenient for storing secrets, they have proven too prone to leakage:
 - Exported environment variables are sent to every process, and from there can easily leak into logs or be exfiltrated
-- Shell substitions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
+- Shell substitutions like `curl -H "Authorization: Bearer $BEARER_TOKEN"` will leak into globally-readable process state.
   (cURL offers the `-H @filename` alternative for reading sensitive headers from a file.)
 - Docker container environment variables can be viewed by anyone with Docker daemon access via `docker inspect`
 - Environment variables in systemd units are globally readable via `systemctl show`
