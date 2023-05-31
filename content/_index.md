@@ -13,7 +13,7 @@ Co-creator [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
 [@bfirsh](https://twitter.com/bfirsh)
 
 **Carl Tashian** \
-Developer Advocate at [Smallstep](https://smallstep.com/), first engineer at Zipcar, co-founder Trove. \
+Offroad Engineer at [Smallstep](https://smallstep.com/), first engineer at Zipcar, co-founder Trove. \
 [tashian.com](https://tashian.com/) [@tashian](https://twitter.com/tashian)
 
 **Eva Parish** \
