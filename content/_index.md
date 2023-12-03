@@ -260,7 +260,7 @@ They will normally handle arguments, flag parsing, help text, and even spelling 
 
 Here are some that we like:
 * Multi-platform: [docopt](http://docopt.org)
-* Bash: [argbash](https://argbash.io)
+* Bash: [argbash](https://argbash.dev)
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
