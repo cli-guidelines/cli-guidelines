@@ -265,8 +265,6 @@ Here are some that we like:
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
 * Node: [oclif](https://oclif.io/)
-* Deno: [flags](https://deno.land/std/flags)
-* Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
 * PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
 * Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
@@ -284,6 +282,45 @@ Anything that is machine readable should also go to `stdout`—this is where pip
 **Send messaging to `stderr`.**
 Log messages, errors, and so on should all be sent to `stderr`.
 This means that when commands are piped together, these messages are displayed to the user and not fed into the next command.
+
+### Syntax {#Syntax}
+
+CLI is a small interpreter of a command set. Every interpreter has its syntax to parse a language. Therefore, a CLI has a syntax. A well-defined syntax can be helpful in many parts of your CLI.
+
+**Define your syntax first.**
+Define a syntax for your command set first; it will be a strong foundation of your CLI.
+
+Typically, syntax is expressed using metasyntax notations. A popular example is Extended Backus-Naur Form (EBNF), which expresses a context-free grammar. The following is an example syntax for a command set ([full syntax link](https://github.com/poseidonos/poseidonos/blob/main/tool/cli/cmd/pos_cli_syntax.ebnf)):
+
+```
+Cmd = ApplicationName ,
+  ( ArrayCmd  | VolumeCmd    | DeviceCmd
+  | SystemCmd | LoggerCmd    | SubsystemCmd
+  | QosCmd    | TelemetryCmd | DevelCmd
+  ) ;
+
+ArrayCmd = "array" ,
+  ( MountArrayCmd  | UnmountArrayCmd
+  | ListArrayCmd   | AddSpareCmd
+  | RemoveSpareCmd | DeleteArrayCmd
+  | CreateArrayCmd | AutoCreateArrayCmd
+  ) ;
+
+MountArrayCmd = "mount" , ( "--array-name" | "-a" ) ,
+  ArrayName ;
+
+UnmountArrayCmd = "unmount" , ( "--array-name" | "-a" ) ,
+  ArrayName , [ "--force" ] ;
+
+...
+```
+
+A well-defined syntax provides the following advantages to your CLI:
+  1. It can be a guideline for CLI development.
+  2. It can provide a nice overview of your command set and its usage.
+  3. It can make your CLI more robust.
+
+The details will be explained in the later sections.
 
 ### Help {#help}
 
@@ -405,6 +442,25 @@ examine the history and state (see also: git help revisions)
 …
 ```
 
+**Display the syntax of commands.**
+Syntax in the help message will make it easier and intuitive for users to learn about your CLI.
+
+```
+$ my-storage-app array create --help
+my-storage-app array create creates a storage array.
+
+Syntax: my-storage-app array create ( --array-name | -a ) ArrayName
+( --buffer | -b ) DeviceName ( --data-devs | -d ) DeviceNameList
+[ ( --spare | -s ) DeviceName ] [ --raid ( raid0 | raid10 | raid5 ) ]
+...
+```
+
+Syntax intuitively tells how to use the command. In this example, users can quickly recognize which flags are mandatory (without []) or optional (with []). 
+
+Syntax can also show the configurations the system supports. The example syntax tells users that this system provides three RAID configurations: RAID0, RAID10, and RAID5; users do not need the manual.
+
+Note: usage can be seen as a simplified syntax.
+
 **Use formatting in your help text.**
 Bold headings make it much easier to scan.
 But, try to do it in a terminal-independent way so that your users aren't staring down a wall of escape characters.
@@ -489,6 +545,11 @@ It’s where people go to understand what your tool is for, what it _isn’t_ fo
 **Provide web-based documentation.**
 People need to be able to search online for your tool’s documentation, and to link other people to specific parts.
 The web is the most inclusive documentation format available.
+
+**Provide syntax diagram.**
+Syntax diagram is an excellent way to explain your CLI; it depicts your command set nicely and intuitively. For instance, [IBM FlashSystem Documentation](https://www.ibm.com/docs/es/flashsystem-9x00/8.3.x?topic=83x-flashsystem-9200) provides a [basic guide to its syntax diagrams](https://www.ibm.com/docs/es/flashsystem-9x00/8.3.x?topic=interface-syntax-diagrams) and syntax diagram for every command (e.g., [mkarray command](https://www.ibm.com/docs/es/flashsystem-9x00/8.3.x?topic=commands-mkarray)).
+
+Do not worry about drawing diagrams; there are tools that convert a syntax into a diagram. For example, [EBNF 2 RAILROAD](https://matthijsgroen.github.io/ebnf2railroad/) draws a nice railroad diagram from a syntax written in EBNF.
 
 **Provide terminal-based documentation.**
 Documentation in the terminal has several nice properties: it’s fast to access, it stays in sync with the specific installed version of the tool, and it works without an internet connection.
@@ -784,7 +845,7 @@ Here's a list of commonly used options:
 Making things configurable is good, but most users are not going to find the right flag and remember to use it all the time (or alias it).
 If it’s not the default, you’re making the experience worse for most of your users.
 
-For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhF`.
+For example, `ls` has terse default output to optimize for scripts and other historical reasons, but if it were designed today, it would probably default to `ls -lhFGT`.
 
 **Prompt for user input.**
 If a user doesn’t pass an argument or flag, prompt for it.
@@ -844,7 +905,7 @@ When a command accepts a secret, eg. via a `--password` argument,
 the argument value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
 
-Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `stdin`.
+Consider accepting sensitive data only via files, e.g. with a `--password-file` argument, or via `STDIN`.
 A `--password-file` argument allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into an argument in Bash by using `--password $(< password.txt)`.
@@ -899,6 +960,8 @@ You might want to use different words, or disambiguate with extra words.
 **Validate user input.**
 Everywhere your program accepts data from the user, it will eventually be given bad data.
 Check early and bail out before anything bad happens, and [make the errors understandable](#errors).
+
+Use your syntax for input validation. For example, if an input assumes a specific format (e.g., MAC address), define the format in your syntax, and validate it using syntax validators. This method is simpler but more powerful than exception handling by string compares.
 
 **Responsive is more important than fast.**
 Print something to the user in <100ms.
