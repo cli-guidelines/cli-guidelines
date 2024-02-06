@@ -285,6 +285,12 @@ Anything that is machine readable should also go to `stdout`—this is where pip
 Log messages, errors, and so on should all be sent to `stderr`.
 This means that when commands are piped together, these messages are displayed to the user and not fed into the next command.
 
+**Provide tab completion and shell integration when possible**
+Many of the libraries above will automatically enable support for [tab completion](https://en.wikipedia.org/wiki/Command-line_completion)
+and [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration)
+based on settings and hints you provide via your code.
+These integrations can dramatically improve the usability of your application and the discoverability of its features. 
+
 ### Help {#help}
 
 **Display help text when passed no options, the `-h` flag, or the `--help` flag.**
