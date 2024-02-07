@@ -287,7 +287,7 @@ This means that when commands are piped together, these messages are displayed t
 
 ### Help {#help}
 
-**Display help text when passed no options, the `-h` flag, or the `--help` flag.**
+**Display help text when passed no options, the `-h` flag, the `-?` flag, or the `--help` flag.**
 
 **Display a concise help text by default.**
 If you can, display help by default when `myapp` or `myapp subcommand` is run.
