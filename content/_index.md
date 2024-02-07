@@ -332,13 +332,14 @@ Example:
 For a listing of options, use jq --help.
 ```
 
-**Show full help when `-h` and `--help` is passed.**
+**Show full help when `-h`, `-?` and `--help` is passed.**
 All of these should show help:
 
 ```
 $ myapp
 $ myapp --help
 $ myapp -h
+$ myapp -?
 ```
 
 Ignore any other flags and arguments that are passed—you should be able to add `-h` to the end of anything and it should show help.
@@ -763,7 +764,7 @@ Here's a list of commonly used options:
   This is also useful for commands which are doing something destructive that usually require user confirmation, but you want to force it to do that destructive action in a script.
 - `--json`: Display JSON output.
   See the [output](#output) section.
-- `-h`, `--help`: Help.
+- `-h`, `-?`, `--help`: Help.
   This should only mean help.
   See the [help](#help) section.
 - `--no-input`: See the [interactivity](#interactivity) section.
