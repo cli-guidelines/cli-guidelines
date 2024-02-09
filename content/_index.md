@@ -264,6 +264,7 @@ Here are some that we like:
 * Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
+* Julia: [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl)
 * Node: [oclif](https://oclif.io/)
 * Deno: [flags](https://deno.land/std/flags)
 * Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
