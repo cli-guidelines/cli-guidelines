@@ -476,7 +476,7 @@ Be intentional in making that decision, and document both syntaxes.
 
 _Further reading: [“Do What I Mean”](http://www.catb.org/~esr/jargon/html/D/DWIM.html)_
 
-**If your command is expecting to have something piped to it and `stdin` is an interactive terminal, display help immediately and quit.**
+**If your command is expecting to have something piped to it and `stdin` is not an interactive terminal, display help immediately and quit.**
 This means it doesn’t just hang, like `cat`.
 Alternatively, you could print a log message to `stderr`.
 
