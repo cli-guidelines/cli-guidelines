@@ -694,7 +694,7 @@ For example, [pypager](https://github.com/prompt-toolkit/pypager) in Python.
 One of the most common reasons to consult documentation is to fix errors.
 If you can make errors into documentation, then this will save the user loads of time.
 
-**Catch errors and [rewrite them for humans](https://www.nngroup.com/articles/error-message-guidelines/).**
+**Catch errors and rewrite them for humans.**
 If you’re expecting an error to happen, catch it and rewrite the error message to be useful.
 Think of it like a conversation, where the user has done something wrong and the program is guiding them in the right direction.
 Example: “Can’t write to file.txt. You might need to make it writable by running ‘chmod +w file.txt’.”
@@ -713,6 +713,8 @@ Consider writing the debug log to a file instead of printing it to the terminal.
 
 **Make it effortless to submit bug reports.**
 One nice thing you can do is provide a URL and have it pre-populate as much information as possible.
+
+_Further reading: [Google: Writing Helpful Error Messages](https://developers.google.com/tech-writing/error-messages), [Nielsen Norman Group: Error-Message Guidelines](https://www.nngroup.com/articles/error-message-guidelines)_
 
 ### Arguments and flags {#arguments-and-flags}
 
