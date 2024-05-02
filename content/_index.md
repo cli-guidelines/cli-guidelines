@@ -265,13 +265,14 @@ Here are some that we like:
 * Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
 * Java: [picocli](https://picocli.info/)
 * Julia: [ArgParse.jl](https://github.com/carlobaldassi/ArgParse.jl), [Comonicon.jl](https://github.com/comonicon/Comonicon.jl)
+* Kotlin: [clikt](https://ajalt.github.io/clikt/)
 * Node: [oclif](https://oclif.io/)
 * Deno: [flags](https://deno.land/std/flags)
 * Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
 * PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
 * Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
-* Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
+* Rust: [clap](https://clap.rs/)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
 **Return zero exit code on success, non-zero on failure.**
