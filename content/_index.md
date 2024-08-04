@@ -844,7 +844,7 @@ This can be very confusing for the user—especially given that one of the most 
 If possible, try to make both forms equivalent, although you might run up against the limitations of your argument parser.
 
 **Do not read secrets directly from flags.**
-When a command accepts a secret, eg. via a `--password` argument,
+When a command accepts a secret, e.g. via a `--password` argument,
 the argument value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
 
@@ -1088,7 +1088,7 @@ Here is the precedence for config parameters, from highest to lowest:
 
 - Flags
 - The running shell’s environment variables
-- Project-level configuration (eg. `.env`)
+- Project-level configuration (e.g. `.env`)
 - User-level configuration
 - System wide configuration
 
