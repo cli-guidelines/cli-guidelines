@@ -538,7 +538,7 @@ but it can also help the usability for humans using programs.
 For example, a user should be able to pipe output to `grep` and it should do what they expect.
 
 > “Expect the output of every program to become the input to another, as yet unknown, program.”
-— [Doug McIlroy](https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html)
+— [Doug McIlroy](http://web.archive.org/web/20220609080931/https://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html)
 
 **If human-readable output breaks machine-readable output, use `--plain` to display output in plain, tabular text format for integration with tools like `grep` or `awk`.**
 In some cases, you might need to output information in a different way to make it human-readable.
