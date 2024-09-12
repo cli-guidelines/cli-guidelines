@@ -292,8 +292,10 @@ This means that when commands are piped together, these messages are displayed t
 **Display help text when passed no options, the `-h` flag, or the `--help` flag.**
 
 **Display a concise help text by default.**
-If you can, display help by default when `myapp` or `myapp subcommand` is run.
-Unless your program is very simple and does something obvious by default (e.g. `ls`), or your program reads input interactively (e.g. `cat`).
+When `myapp` or `myapp subcommand` is run with no arguments, display help text.
+
+You can ignore this guideline if your program or subcommand is very simple and requires no arguments (e.g. `ls`, `git pull`),
+or if it's interactive by default (e.g. `npm init`).
 
 The concise help text should only include:
 
