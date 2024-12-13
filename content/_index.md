@@ -635,7 +635,7 @@ These things should disable colors:
 
 - `stdout` or `stderr` is not an interactive terminal (a TTY).
   It’s best to individually check—if you’re piping `stdout` to another program, it’s still useful to get colors on `stderr`.
-- The `NO_COLOR` environment variable is set.
+- The `NO_COLOR` environment variable is set and it is not empty (regardless of its value).
 - The `TERM` environment variable has the value `dumb`.
 - The user passes the option `--no-color`.
 - You may also want to add a `MYAPP_NO_COLOR` environment variable in case users want to disable color specifically for your program.
