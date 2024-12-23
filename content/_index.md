@@ -683,7 +683,7 @@ Don’t print log level labels (`ERR`, `WARN`, etc.) or extraneous contextual in
 **Use a pager (e.g. `less`) if you are outputting a lot of text.**
 For example, `git diff` does this by default.
 Using a pager can be error-prone, so be careful with your implementation such that you don’t make the experience worse for the user.
-You shouldn’t use a pager if `stdin` or `stdout` is not an interactive terminal.
+Use a pager only if `stdin` or `stdout` is an interactive terminal.
 
 A good sensible set of options to use for `less` is `less -FIRX`.
 This does not page if the content fills one screen, ignores case when you search, enables color and formatting, and leaves the contents on the screen when `less` quits.
