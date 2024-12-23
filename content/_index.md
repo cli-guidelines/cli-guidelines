@@ -849,12 +849,13 @@ If possible, try to make both forms equivalent, although you might run up agains
 When a command accepts a secret, e.g. via a `--password` flag,
 the flag value will leak the secret into `ps` output and potentially shell history.
 And, this sort of flag encourages the use of insecure environment variables for secrets.
+(Environment variables are insecure because they can often be read by other users, their values end up in debug logs, etc.)
 
 Consider accepting sensitive data only via files, e.g. with a `--password-file` flag, or via `stdin`.
 A `--password-file` flag allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into a flag in Bash by using `--password $(< password.txt)`.
-This approach has the same security issue of leaking the file’s contents into the output of `ps`.
+This approach has the same security as mentioned above.
 It’s best avoided.)
 
 ### Interactivity {#interactivity}
