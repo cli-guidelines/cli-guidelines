@@ -272,7 +272,7 @@ Here are some that we like:
 * PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
 * Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
 * Ruby: [TTY](https://ttytoolkit.org/)
-* Rust: [clap](https://clap.rs/)
+* Rust: [clap](https://docs.rs/clap)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
 **Return zero exit code on success, non-zero on failure.**
