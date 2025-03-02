@@ -857,7 +857,7 @@ Consider accepting sensitive data only via files, e.g. with a `--password-file` 
 A `--password-file` flag allows a secret to be passed in discreetly, in a wide variety of contexts.
 
 (It’s possible to pass a file’s contents into a flag in Bash by using `--password $(< password.txt)`.
-This approach has the same security as mentioned above.
+This approach has the same security problems mentioned above.
 It’s best avoided.)
 
 ### Interactivity {#interactivity}
