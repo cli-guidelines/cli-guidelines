@@ -1176,6 +1176,7 @@ Don’t make it _too_ short: the very shortest commands are best reserved for th
 
 **Make it easy to type.**
 If you expect people to type your command name all day, make it easy on their hands.
+(And try to keep in mind that many people use non-QWERTY keyboards, such as AZERTY, Dvorak, etc.)
 
 A real-world example: long before Docker Compose was `docker compose`, it was [`plum`](https://github.com/aanand/fig/blob/0eb7d308615bae1ad4be1ca5112ac7b6b6cbfbaf/setup.py#L26).
 This turned out to be such an awkward, one-handed hopscotch that it was immediately renamed to [`fig`](https://github.com/aanand/fig/commit/0cafdc9c6c19dab2ef2795979dc8b2f48f623379), which – as well as being shorter – flows much more easily.
