@@ -829,7 +829,7 @@ For example, `tar` can extract files from `stdin`:
 $ curl https://example.com/something.tar.gz | tar xvf -
 ```
 
-**If a flag can accept an optional value, allow a special word like “none.”**
+**If a flag can accept an optional value, allow a special word like “none”.**
 For example, `ssh -F` takes an optional filename of an alternative `ssh_config` file, and `ssh -F none` runs SSH with no config file. Don’t just use a blank value—this can make it ambiguous whether arguments are flag values or arguments.
 
 **If possible, make arguments, flags and subcommands order-independent.**
