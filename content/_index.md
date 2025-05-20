@@ -772,6 +772,8 @@ Here's a list of commonly used options:
 - `-h`, `--help`: Help.
   This should only mean help.
   See the [help](#help) section.
+- `-n`, `--dry-run`: Dry run. 
+  Do not run the command, but describe the changes that would occur if the command were run. For example, `rsync`, `git add`.
 - `--no-input`: See the [interactivity](#interactivity) section.
 - `-o`, `--output`: Output file.
   For example, `sort`, `gcc`.
