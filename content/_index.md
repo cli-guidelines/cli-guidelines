@@ -289,7 +289,7 @@ This means that when commands are piped together, these messages are displayed t
 
 ### Help {#help}
 
-**Display help text when passed no options, the `-h` flag, or the `--help` flag.**
+**Display help text when passed no options, the `-h` flag, the `-?` flag, or the `--help` flag.**
 
 **Display a concise help text by default.**
 When `myapp` or `myapp subcommand` is run with no arguments, display help text.
@@ -336,13 +336,14 @@ Example:
 For a listing of options, use jq --help.
 ```
 
-**Show full help when `-h` and `--help` is passed.**
+**Show full help when `-h`, `-?` and `--help` is passed.**
 All of these should show help:
 
 ```
 $ myapp
 $ myapp --help
 $ myapp -h
+$ myapp -?
 ```
 
 Ignore any other flags and arguments that are passed—you should be able to add `-h` to the end of anything and it should show help.
@@ -769,7 +770,7 @@ Here's a list of commonly used options:
   This is also useful for commands which are doing something destructive that usually require user confirmation, but you want to force it to do that destructive action in a script.
 - `--json`: Display JSON output.
   See the [output](#output) section.
-- `-h`, `--help`: Help.
+- `-h`, `-?`, `--help`: Help.
   This should only mean help.
   See the [help](#help) section.
 - `-n`, `--dry-run`: Dry run. 
