@@ -9,7 +9,7 @@ Engineer at Squarespace, co-creator of Docker Compose. \
 [@aanandprasad](https://twitter.com/aanandprasad)
 
 **Ben Firshman** \
-Co-creator [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
+Co-creator of [Replicate](https://replicate.ai/), co-creator of Docker Compose. \
 [@bfirsh](https://twitter.com/bfirsh)
 
 **Carl Tashian** \
@@ -17,7 +17,7 @@ Offroad Engineer at [Smallstep](https://smallstep.com/), first engineer at Zipca
 [tashian.com](https://tashian.com/) [@tashian](https://twitter.com/tashian)
 
 **Eva Parish** \
-Technical Writer at Squarespace, O’Reilly contributor.\
+Technical Writer at Squarespace, O'Reilly contributor. \
 [evaparish.com](https://evaparish.com/) [@evpari](https://twitter.com/evpari)
 
 Design by [Mark Hurrell](https://mhurrell.co.uk/). Thanks to Andreas Jansson for early contributions, and Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Dj Walker-Morgan, Jacob Maine, James Coglan, Michael Dwan, and Steve Klabnik for reviewing drafts.
@@ -340,7 +340,7 @@ Example:
 For a listing of options, use jq --help.
 ```
 
-**Show full help when `-h` and `--help` is passed.**
+**Show full help when `-h` and `--help` are passed.**
 All of these should show help:
 
 ```
@@ -663,7 +663,7 @@ $ yubikey-agent -setup
 Choose a new PIN/PUK: 
 Repeat the PIN/PUK: 
 
-🧪 Retriculating splines …
+🧪 Reticulating splines …
 
 ✅ Done! This YubiKey is secured and ready to go.
 🤏 When the YubiKey blinks, touch it to authorize the login.
@@ -841,7 +841,7 @@ A lot of CLIs, especially those with subcommands, have unspoken rules on where y
 For example a command might have a `--foo` flag that only works if you put it before the subcommand:
 
 ```
-mycmd --foo=1 subcmd
+$ mycmd --foo=1 subcmd
 works
 
 $ mycmd subcmd --foo=1
