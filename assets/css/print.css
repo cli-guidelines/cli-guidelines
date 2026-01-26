@@ -1,43 +1,43 @@
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 400; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: italic; 
-   font-weight: 400; 
+   font-family: 'CLIG';
+   font-style: italic;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Italic.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 600; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Bold.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: italic; 
-   font-weight: 600; 
+   font-family: 'CLIG';
+   font-style: italic;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterDuospace-BoldItalic.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 800; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 800;
    src: url(https://fonts.clig.dev/EditorialNew-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG-PRE'; 
-   font-style: normal; 
-   font-weight: 400; 
+   font-family: 'CLIG-PRE';
+   font-style: normal;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterMonoS-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG-PRE'; 
-   font-style: normal; 
-   font-weight: 600; 
+   font-family: 'CLIG-PRE';
+   font-style: normal;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterMonoS-Bold.woff2) format('woff2');
 }
 
@@ -48,10 +48,10 @@
    line-height: inherit;
    letter-spacing: inherit;
    vertical-align: baseline;
-    
+
    margin: 0;
    padding: 0;
-    
+
    color: inherit;
    text-decoration: none;
    text-underline-offset: 0.3em;
@@ -76,7 +76,7 @@ b, strong {
 }
 
 i, em {
-  font-style: italic; 
+  font-style: italic;
 }
 
 code {
@@ -135,7 +135,7 @@ h3 {
 
 code {
    color: white;
-   background: black;   
+   background: black;
    padding: 0.1em 0.25em;
 }
 
