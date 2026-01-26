@@ -1,43 +1,43 @@
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 400; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: italic; 
-   font-weight: 400; 
+   font-family: 'CLIG';
+   font-style: italic;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Italic.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 600; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterDuospace-Bold.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: italic; 
-   font-weight: 600; 
+   font-family: 'CLIG';
+   font-style: italic;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterDuospace-BoldItalic.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG'; 
-   font-style: normal; 
-   font-weight: 800; 
+   font-family: 'CLIG';
+   font-style: normal;
+   font-weight: 800;
    src: url(https://fonts.clig.dev/EditorialNew-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG-PRE'; 
-   font-style: normal; 
-   font-weight: 400; 
+   font-family: 'CLIG-PRE';
+   font-style: normal;
+   font-weight: 400;
    src: url(https://fonts.clig.dev/iAWriterMonoS-Regular.woff2) format('woff2');
 }
 @font-face {
-   font-family: 'CLIG-PRE'; 
-   font-style: normal; 
-   font-weight: 600; 
+   font-family: 'CLIG-PRE';
+   font-style: normal;
+   font-weight: 600;
    src: url(https://fonts.clig.dev/iAWriterMonoS-Bold.woff2) format('woff2');
 }
 
@@ -48,10 +48,10 @@
    line-height: inherit;
    letter-spacing: inherit;
    vertical-align: baseline;
-    
+
    margin: 0;
    padding: 0;
-    
+
    color: inherit;
    text-decoration: none;
    text-underline-offset: 0.3em;
@@ -75,17 +75,17 @@ body {
       font-size: 3.5rem;
    }
 }
-@media (min-width: 750px) {
+@media (min-width: 744px) {
    body {
       font-size: 2.5rem;
    }
 }
-@media (max-width: 750px) and (orientation: landscape) {
+@media (max-width: 744px) and (orientation: landscape) {
    body {
       font-size: 2.4rem;
    }
 }
-@media (min-width: 751px) and (max-width: 999px) and (orientation: landscape) {
+@media (min-width: 745px) and (max-width: 999px) and (orientation: landscape) {
    body {
       font-size: 2.1rem;
    }
@@ -280,12 +280,12 @@ main {
    letter-spacing: -0.02em;
    max-width: 6em;
 }
-@media (max-width: 750px) and (orientation: landscape) {
+@media (max-width: 744px) and (orientation: landscape) {
    #command-line-interface-guidelines > h1 {
       font-size: 10vw;
    }
 }
-@media (min-width: 750px) {
+@media (min-width: 744px) {
    #command-line-interface-guidelines > h1 {
       font-size: 16.5vw;
    }
@@ -360,7 +360,7 @@ h2:before, h3:before {
    content: "CLIG: ";
 }
 
-@media (min-width: 750px) {
+@media (min-width: 744px) {
    h3:before {
       content: "CLIG:"attr(data-parent-heading)" ";
    }
@@ -424,14 +424,14 @@ a.permalink:focus::after {
    vertical-align: middle;
 }
 
-main p, 
-main ol, 
+main p,
+main ol,
 main ul {
    margin: 1.7em 0;
    font-weight: 400;
 }
 
-main ol li, 
+main ol li,
 main ul li {
    padding-left: 2.2em;
 }
@@ -510,7 +510,7 @@ pre code strong {
    font-weight: 600;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 744px) {
    #command-line-interface-guidelines section p,
    #command-line-interface-guidelines section ol,
    #command-line-interface-guidelines section ul,
@@ -599,4 +599,3 @@ a:focus, button:focus {
    outline: none;
    text-decoration: underline;
 }
-
