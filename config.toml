@@ -1,5 +1,13 @@
 staticDir = ["assets"]
 
+[outputFormats.llmstxt]
+  baseName = "llms"
+  mediaType = "text/plain"
+  isPlainText = true
+
+[outputs]
+  home = ["HTML", "RSS", "llmstxt"]
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

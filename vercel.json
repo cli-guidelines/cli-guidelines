@@ -4,6 +4,7 @@
       "HUGO_VERSION": "0.128.0"
     }
   },
+  "buildCommand": "hugo && bash vercel-build.sh",
   "github": {
     "silent": true
   }
