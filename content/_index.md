@@ -277,7 +277,7 @@ Here are some that we like:
 
 **Return zero exit code on success, non-zero on failure.**
 Exit codes are how scripts determine whether a program succeeded or failed, so you should report this correctly.
-Map the non-zero exit codes to the most important failure modes.
+Map the non-zero exit codes to the most important failure modes, but avoid exit codes above 127.
 
 **Send output to `stdout`.**
 The primary output for your command should go to `stdout`.
