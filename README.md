@@ -38,9 +38,14 @@ a static-assets project, built and deployed from this repo:
 - `public/_headers` (from `assets/_headers`) makes Cloudflare serve
   `/llms.txt` as `text/markdown`.
 
-Requests to `/` that send an `Accept: text/markdown` header are rewritten to
-`/llms.txt` by a Cloudflare URL Rewrite Transform Rule. That rule lives at the
-zone level, not in this deploy; provision or update it with:
+Two zone-level Cloudflare Rules support the site (these are not part of the
+deploy):
+
+- a **URL Rewrite** rule that serves `/llms.txt` for requests to `/` sending
+  an `Accept: text/markdown` header;
+- a **Redirect** rule from `www.clig.dev` to the apex `clig.dev`.
+
+Provision or update both (idempotent) with:
 
 ```
 $ CLOUDFLARE_API_TOKEN=... ./scripts/cloudflare-transform-rule.sh
