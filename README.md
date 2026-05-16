@@ -27,6 +27,26 @@ hugo server --bind 0.0.0.0 --baseURL http://$(hostname -f):1313
 
 <!-- TODO: add contact info (how to reach the CLIG creators with questions) -->
 
+## Deployment
+
+The site is hosted on [Cloudflare Pages](https://pages.cloudflare.com/) with
+these project settings:
+
+- **Build command:** `hugo`
+- **Build output directory:** `public`
+- **Environment variable:** `HUGO_VERSION` = `0.160.1`
+
+`assets/_headers` is copied into the build output and makes Cloudflare serve
+`/llms.txt` as `text/markdown`.
+
+Requests to `/` that send an `Accept: text/markdown` header are rewritten to
+`/llms.txt` by a Cloudflare URL Rewrite Transform Rule. Provision or update
+that rule (it is not stored in the Pages project) with:
+
+```
+$ CLOUDFLARE_API_TOKEN=... ./scripts/cloudflare-transform-rule.sh
+```
+
 ## License
 
 This work is licensed under a

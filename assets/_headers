@@ -1,0 +1,7 @@
+# Cloudflare Pages headers. Lives in assets/ (Hugo's staticDir) so Hugo
+# copies it verbatim into public/.
+
+# Hugo writes llms.txt with a .txt extension, which Pages would otherwise
+# serve as text/plain. Serve it as Markdown to match the /llms.txt route.
+/llms.txt
+  content-type: text/markdown; charset=utf-8
