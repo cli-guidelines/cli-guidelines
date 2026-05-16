@@ -29,19 +29,18 @@ hugo server --bind 0.0.0.0 --baseURL http://$(hostname -f):1313
 
 ## Deployment
 
-The site is hosted on [Cloudflare Pages](https://pages.cloudflare.com/) with
-these project settings:
+The site is hosted on [Cloudflare Workers](https://workers.cloudflare.com/) as
+a static-assets project, built and deployed from this repo:
 
-- **Build command:** `hugo`
-- **Build output directory:** `public`
-- **Environment variable:** `HUGO_VERSION` = `0.160.1`
-
-`assets/_headers` is copied into the build output and makes Cloudflare serve
-`/llms.txt` as `text/markdown`.
+- `build.sh` installs a pinned Hugo and builds the site into `public/`.
+- `wrangler.toml` runs `build.sh` and uploads `public/` as the Worker's static
+  assets. The Cloudflare deploy command is `npx wrangler deploy`.
+- `public/_headers` (from `assets/_headers`) makes Cloudflare serve
+  `/llms.txt` as `text/markdown`.
 
 Requests to `/` that send an `Accept: text/markdown` header are rewritten to
-`/llms.txt` by a Cloudflare URL Rewrite Transform Rule. Provision or update
-that rule (it is not stored in the Pages project) with:
+`/llms.txt` by a Cloudflare URL Rewrite Transform Rule. That rule lives at the
+zone level, not in this deploy; provision or update it with:
 
 ```
 $ CLOUDFLARE_API_TOKEN=... ./scripts/cloudflare-transform-rule.sh

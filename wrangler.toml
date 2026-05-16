@@ -1,3 +1,10 @@
 name = "cli-guidelines"
-pages_build_output_dir = "public"
 compatibility_date = "2026-05-15"
+
+# Build the Hugo site, then deploy ./public as the Worker's static assets.
+# `wrangler deploy` runs [build].command before uploading [assets].directory.
+[build]
+command = "bash build.sh"
+
+[assets]
+directory = "./public"
