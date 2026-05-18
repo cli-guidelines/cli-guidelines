@@ -880,8 +880,9 @@ Your language should have helpers for this.
 **Let the user escape.**
 Make it clear how to get out.
 (Don’t do what vim does.)
-If your program hangs on network I/O etc, always make Ctrl-C still work.
-If it’s a wrapper around program execution where Ctrl-C can’t quit (SSH, tmux, telnet, etc), make it clear how to do that.
+Programs should gracefully exit, though possibly with an error, on end-of-file (EOF, commonly input using Ctrl-D at the start of a line).
+If your program hangs on network I/O etc., always make Ctrl-C still work.
+If it’s a wrapper around program execution where Ctrl-C can’t quit (SSH, telnet, etc.), make it clear how to do that.
 For example, SSH allows escape sequences with the `~` escape character.
 
 ### Subcommands
@@ -1027,6 +1028,7 @@ The server most likely to not exist in 20 years is the one that you are maintain
 **If a user hits Ctrl-C (the INT signal), exit as soon as possible.**
 Say something immediately, before you start clean-up.
 Add a timeout to any clean-up code so it can’t hang forever.
+If the program is a shell, Ctrl-C should exit/cancel the current task, not the shell itself.
 
 **If a user hits Ctrl-C during clean-up operations that might take a long time, skip them.**
 Tell the user what will happen when they hit Ctrl-C again, in case it is a destructive action.
