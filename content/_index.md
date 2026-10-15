@@ -84,6 +84,7 @@ This guide is also agnostic about programming languages and tooling in general.
 Who is this guide for?
 - If you are creating a CLI program and you are looking for principles and concrete best practices for its UI design, this guide is for you.
 - If you are a professional “CLI UI designer,” that’s amazing—we’d love to learn from you.
+- If you are building a CLI that AI agents will run, this guide is for you too.
 - If you’d like to avoid obvious missteps of the variety that go against 40 years of CLI design conventions, this guide is for you.
 - If you want to delight people with your program’s good design and helpful help, this guide is definitely for you.
 - If you are creating a GUI program, this guide is not for you—though you may learn some GUI anti-patterns if you decide to read it anyway.
@@ -122,6 +123,23 @@ Your software _will_ become a part in a larger system—your only choice is over
 
 Most importantly, designing for composability does not need to be at odds with designing for humans first.
 Much of the advice in this document is about how to achieve both.
+
+### Building for AI Agents {#building-for-agents}
+
+Over the recent past, AI agents are increasingly using the command line, and we need to design for them too.
+Coding agents like Claude Code, GitHub Copilot, or even custom built agents use large language models to carry out tasks.
+With access to a shell, they can run CLI commands, inspect the output, and decide what to do next based on that output.
+
+This doesn’t replace [human-first design](#human-first-design).
+Agents combine aspects of the two audiences we already design for. They interpret text, but can also run commands and process data through scripts.
+A table that’s easy for a person to scan may be difficult to parse reliably, and an unexpected prompt can interrupt an automated workflow.
+
+Much of what agents need is what good CLIs have always offered; predictable behavior, data kept apart from messaging, accurate exit codes, and help text that teaches by example.
+Agents also have a limited context window.
+Unnecessary output takes up that space and can increase processing time and cost.
+
+Let's call this _agent developer experience_, or Agent DX. Designing for predictability, concise output, and safe automation.
+A program that gets these right is better for humans and agents, too.
 
 ### Consistency across programs {#consistency-across-programs}
 
@@ -1022,6 +1040,91 @@ Will your command still run the same as it does today, or will it stop working b
 The server most likely to not exist in 20 years is the one that you are maintaining right now.
 (But don’t build in a blocking call to Google Analytics either.)
 
+### Agent DX {#agent-dx}
+
+Most of the advice in this guide also applies when an AI agent runs your program (see [Building for Agents](#building-for-agents)).
+This section brings that advice together and explains where agents need particular care.
+
+Don’t assume that choosing a CLI over the Model Context Protocol (MCP) will automatically make a tool more efficient.
+In Mario Zechner’s [benchmark of terminal-control tools](https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/), the MCP and CLI versions of the same tool each completed all 30 runs successfully.
+Their total costs were $19.45 and $19.95 respectively, a difference of less than 3%.
+That’s one experiment, not a general rule: measure completion rates, token usage and cost on tasks your users actually perform.
+
+**Make `--json` complete and stable.**
+An agent may be able to read a table, but that doesn’t make it a reliable data format.
+Wrapped columns and inconsistent values, such as `Running` in one command and `running` in another, can break automated processing.
+Make the information needed to use the command’s results available as JSON, with consistent field names and types.
+Use numbers with documented units for durations and ISO 8601 strings for timestamps, rather than relative descriptions such as `"3 days ago"`.
+Treat the schema as a stable interface.
+For streaming structured output, consider JSON Lines. One JSON object per line.
+Keep `stdout` for data alon. A stray log line there will break the agent’s parser.
+
+**Distinguish important failure modes, and document them.**
+Exit codes let agents and scripts determine whether a command succeeded.
+Use distinct codes for failures that need different responses, such as invalid arguments, missing resources and insufficient permissions.
+Never exit `0` when the requested operation failed.
+Document your codes in the help text; for example, a CLI might use:
+
+```
+EXIT CODES
+  0  Success
+  1  General failure
+  2  Usage error
+  3  Not found
+  4  Permission denied
+  5  Conflict (already exists)
+```
+
+**Never wait for input that isn’t coming.**
+Don’t assume an agent can respond to an interactive prompt.
+Honor `--no-input` even when the caller provides a TTY, and fail immediately if required input is missing, explaining which flag to pass (see [Interactivity](#interactivity)).
+Provide an explicit way to confirm dangerous operations without prompting, such as `--confirm="name-of-thing"`.
+Disabling prompts must not silently approve destructive actions.
+
+**Make commands safe to run twice.**
+An agent may retry after a timeout or dropped connection without knowing whether the first attempt succeeded.
+Where possible, provide operations that converge on the requested state, such as `apply`, or an option such as `--if-not-exists`, rather than creating duplicates.
+Check that an existing resource matches the request before treating it as success.
+When an operation can’t be made safe to retry, make its status discoverable so the caller can check before trying again.
+
+**Support structured output for dry runs.**
+Agents, and the humans supervising them, need to preview destructive actions before committing to them.
+Let `--dry-run --json` return the planned changes without applying them.
+Explain any limits of the preview, particularly when changes to remote state could affect the result of a later run.
+
+**Make help useful without a visit to your website.**
+An agent may rely on `--help` to learn how to use an unfamiliar command.
+Mark required arguments and flags, document output modes and exit codes, and include realistic examples.
+Keep top-level help short and put the detail in each subcommand’s help, so an agent loads only what it needs.
+This is called progressive disclosure.
+In a separate MCP example, Anthropic [reports reducing token usage from 150,000 to 2,000](https://www.anthropic.com/engineering/code-execution-with-mcp) by exposing tools through code and loading definitions on demand.
+That isn’t a CLI benchmark, but it illustrates why loading only relevant information matters.
+
+**Let the agent ask for exactly what it needs.**
+Offer filtering and pagination options so agents don’t have to retrieve everything and discard most of it.
+For example, `--status failed --limit 20` could return a bounded set of relevant results.
+Provide a way to select individual fields, or let callers extract them from JSON with tools such as `jq`.
+Use `--quiet` to suppress non-essential messaging, rather than changing the meaning of the result.
+In machine-readable modes, omit spinners, progress bars and decorative output, even when the caller provides a TTY.
+
+**Keep the command grammar predictable.**
+A consistent hierarchy makes related operations easier to discover.
+For example, `mycmd --help` might list resources, while `mycmd user --help` lists actions on users.
+Either `noun verb` or `verb noun` ordering can work; choose one and use it consistently (see [Subcommands](#subcommands)).
+
+**Make errors say what to do next.**
+After a failure, an agent has to decide whether to retry, try something else, or give up.
+Identify what failed without exposing secrets, distinguish failures that may resolve on retry from those that require a change, and suggest a next step where possible (see [Errors](#errors)).
+In JSON mode, emit structured errors on `stderr`, with stable error codes and useful context.
+For example, this command could write the following JSON to `stderr` and exit with code `3`:
+
+```
+$ mycmd deploy web --env prod --json
+{"error": "image_not_found", "image": "registry/web:v2.1.0", "hint": "Run 'mycmd image list' to see available tags."}
+```
+
+_Further reading: [Writing CLI Tools That AI Agents Actually Want to Use (Ugo Enyioha)](https://dev.to/uenyioha/writing-cli-tools-that-ai-agents-actually-want-to-use-39no), [Making your CLI agent-friendly (Speakeasy)](https://www.speakeasy.com/blog/engineering-agent-friendly-cli), [MCP vs CLI: Benchmarking Tools for Coding Agents (Mario Zechner)](https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/), [Code execution with MCP (Anthropic)](https://www.anthropic.com/engineering/code-execution-with-mcp)_
+
 ### Signals and control characters {#signals}
 
 **If a user hits Ctrl-C (the INT signal), exit as soon as possible.**
@@ -1240,3 +1343,5 @@ _Further reading: [Open Source Metrics](https://opensource.guide/metrics/)_
 - [Program Behavior for All Programs](https://www.gnu.org/prep/standards/html_node/Program-Behavior.html), GNU Coding Standards
 - [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46), Jeff Dickey
 - [CLI Style Guide](https://devcenter.heroku.com/articles/cli-style-guide), Heroku
+- [Writing CLI Tools That AI Agents Actually Want to Use](https://dev.to/uenyioha/writing-cli-tools-that-ai-agents-actually-want-to-use-39no), Ugo Enyioha
+- [MCP vs CLI: Benchmarking Tools for Coding Agents](https://mariozechner.at/posts/2025-08-15-mcp-vs-cli/), Mario Zechner
